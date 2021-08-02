@@ -2,7 +2,15 @@
   <div id="login" class="text-center">
     <div class="overlay"></div>
     <div class="popup">
-      <div class="right-container"></div>
+      <div class="right-container">
+        <h2></h2>
+        <img
+          src="https://i.imgur.com/6JguKva.png"
+          alt="plannr logo"
+          class="logo-image"
+        />
+        <p></p>
+      </div>
       <form class="form-signin" @submit.prevent="login">
         <h1 class="h3 mb-3 font-weight-normal" id="sign-in-message">
           Sign in to access your account!
@@ -34,7 +42,9 @@
           v-model="user.password"
           required
         />
-        <router-link :to="{ name: 'register' }">Need an account?</router-link>
+        <router-link :to="{ name: 'register' }" class="register"
+          >Need an account?</router-link
+        >
         <button type="submit">Sign in</button>
       </form>
     </div>
@@ -99,8 +109,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 500px;
+  width: 800px;
+  height: 600px;
   z-index: 2;
   background-color: white;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
@@ -112,31 +122,71 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(0, -50%);
-  width: 600px;
-  height: 500px;
+  width: 800px;
+  height: 600px;
   background: linear-gradient(to right, #ff4b2b, #ff416c);
-  z-index: 3;
+  z-index: 2;
   width: 50%;
 }
 
 #sign-in-message {
-  padding-left: 10px;
   font-weight: bold;
-  max-width: 150px;
-  font-size: 20px;
+  max-width: 325px;
+  font-size: 23px;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  caret-color: transparent;
+}
+
+.logo-image {
+  max-width: 400px;
 }
 
 .form-signin {
   display: flex;
-  margin: 25px;
-  max-width: 50%;
+  margin: 100px 0px 0px 50px;
+  max-width: 66%;
   flex-direction: column;
-  padding-left: 10px;
+
   z-index: 4;
 }
 
 form button {
-  max-width: 25%;
+  max-width: 110px;
+  height: 30px;
+  border: #ffffff;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #585858;
+  text-align: center;
+  transition: all 0.2s;
+  caret-color: transparent;
+}
+
+form button:hover {
+  max-width: 110px;
+  height: 30px;
+  border: #ffffff;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #141414;
+  text-align: center;
+  transition: all 0.2s;
+  caret-color: transparent;
 }
 
 .form-control {
@@ -146,4 +196,28 @@ form button {
   margin: 8px 0;
   width: 50%;
 }
+
+.register {
+  font: bold 11px Arial;
+  margin: 0px 0px 10px 0px;
+  width: 100px;
+  text-decoration: none;
+  background-color: #eeeeee;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-radius: 2em;
+  caret-color: transparent;
+}
+
+.register:hover {
+  font: bold 11px Arial;
+  margin: 0px 0px 10px 0px;
+  width: 100px;
+  text-decoration: none;
+  background-color: #bdbbbb;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  caret-color: transparent;
+}
 </style>
+
