@@ -157,6 +157,14 @@ export default {
   width: 50%;
 }
 
+.right-container p {
+  max-width: 400px;
+  padding: 20px 20px 0px 20px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+}
+
 #register-messege {
   font-weight: bold;
   max-width: 325px;
