@@ -236,5 +236,13 @@ form button:hover {
   padding: 2px 6px 2px 6px;
   caret-color: transparent;
 }
+
+.alert {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: rgb(255, 0, 0);
+  margin: 0px 0px 10px 0px;
+}
 </style>
 

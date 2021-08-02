@@ -114,7 +114,8 @@ export default {
   width: 100%;
   /* opacity: 10%;
   backdrop-filter: blur(6px); */
-  background: rgba(185, 185, 185, 0.5);
+  backdrop-filter: blur(3px);
+  background: #9494946e;
   height: 100vh;
   z-index: 1;
   display: block;
@@ -215,11 +216,14 @@ form button:hover {
 }
 
 .login-link {
-  font: bold 11px Arial;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
   margin: 0px 0px 10px 0px;
-  width: 100px;
+  width: 120px;
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #dddddd;
   color: #333333;
   padding: 2px 6px 2px 6px;
   border-radius: 2em;
@@ -227,13 +231,23 @@ form button:hover {
 }
 
 .login-link:hover {
-  font: bold 11px Arial;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
   margin: 0px 0px 10px 0px;
-  width: 100px;
+  width: 120px;
   text-decoration: none;
   background-color: #bdbbbb;
   color: #333333;
   padding: 2px 6px 2px 6px;
   caret-color: transparent;
+}
+
+.alert {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: rgb(255, 0, 0);
+  margin: 0px 0px 10px 0px;
 }
 </style>
