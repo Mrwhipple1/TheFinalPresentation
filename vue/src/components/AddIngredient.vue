@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import recipeService from "@/services.RecipeService.js";
+import recipeService from "@/services/RecipeService.js";
 
 export default {
   name: "AddIngredients",
