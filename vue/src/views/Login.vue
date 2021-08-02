@@ -9,11 +9,19 @@
           alt="plannr logo"
           class="logo-image"
         />
-        <p></p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </div>
       <form class="form-signin" @submit.prevent="login">
         <h1 class="h3 mb-3 font-weight-normal" id="sign-in-message">
-          Sign in to access your account!
+          Sign in to access your Plannr account!
         </h1>
         <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
           Invalid username and password!
@@ -97,7 +105,8 @@ export default {
   width: 100%;
   /* opacity: 10%;
   backdrop-filter: blur(6px); */
-  background: rgba(185, 185, 185, 0.5);
+  backdrop-filter: blur(3px);
+  background: #9494946e;
   height: 100vh;
   z-index: 1;
   display: block;
@@ -129,9 +138,17 @@ export default {
   width: 50%;
 }
 
+.right-container p {
+  max-width: 400px;
+  padding: 20px 20px 0px 20px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+}
+
 #sign-in-message {
   font-weight: bold;
-  max-width: 325px;
+  max-width: 300px;
   font-size: 23px;
   text-align: left;
   font-family: "Roboto", sans-serif;
@@ -218,6 +235,14 @@ form button:hover {
   color: #333333;
   padding: 2px 6px 2px 6px;
   caret-color: transparent;
+}
+
+.alert {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: rgb(255, 0, 0);
+  margin: 0px 0px 10px 0px;
 }
 </style>
 
