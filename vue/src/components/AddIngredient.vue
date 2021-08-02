@@ -30,12 +30,20 @@
           v-model="newIngredient.measurement"
         />
       </div>
+
+      <input type="submit" class="btn btn-success" />
+      <input
+        type="button"
+        v-on:click.prevent="resetForm"
+        class="btn btn-success"
+        value="Cancel"
+      />
     </form>
   </div>
 </template>
 
 <script>
-import recipeService from "@/services.RecipeService.js";
+import recipeService from "@/services/RecipeService.js";
 
 export default {
   name: "AddIngredients",
