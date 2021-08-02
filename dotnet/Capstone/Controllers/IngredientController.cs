@@ -1,4 +1,5 @@
 ﻿using Capstone.DAO.Interfaces;
+using Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,21 @@ namespace Capstone.Controllers
 {
     [Route("[Controller]")]
     [ApiController]
-    public class IngredientController : Controller
+    public class IngredientController : ControllerBase
     {
-        private readonly IUserDAO userDAO; 
+        private readonly IUserDAO userDAO;
+        private readonly IIngredientsDAO ingredientsDAO;
+
+        public IngredientController(IIngredientsDAO ingredientsDAO, IUserDAO userDAO)
+        {
+            this.ingredientsDAO = ingredientsDAO;
+            this.userDAO = userDAO;
+        }
 
         [HttpPost]
-        public IActionResult Index()
+        public IActionResult AddNewIngredient(Ingredient ingredient)
         {
-            return View();
+            
         }
     }
 }
