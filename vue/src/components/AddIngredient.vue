@@ -30,6 +30,14 @@
           v-model="newIngredient.measurement"
         />
       </div>
+
+      <input type="submit" class="btn btn-success" />
+      <input
+        type="button"
+        v-on:click.prevent="resetForm"
+        class="btn btn-success"
+        value="Cancel"
+      />
     </form>
   </div>
 </template>
