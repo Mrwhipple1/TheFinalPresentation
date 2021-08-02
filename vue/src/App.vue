@@ -8,6 +8,12 @@
         >Home</router-link
       >
       <router-link
+        v-bind:to="{ name: 'pantry' }"
+        class="nav-item"
+        v-if="$store.state.token != ''"
+        >Pantry</router-link
+      >
+      <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
         class="nav-item"
