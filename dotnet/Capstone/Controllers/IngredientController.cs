@@ -22,9 +22,24 @@ namespace Capstone.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddNewIngredient(Ingredient ingredient)
+        public ActionResult<bool> AddNewIngredient()
         {
-            
+            Ingredients ingredient = new Ingredients();
+            ingredient.IngredientId = 1;
+            ingredient.IngredientName = "";
+            ingredient.MeasurementUnit = "";
+            ingredient.UserId = 1;
+
+            bool result = ingredientsDAO.AddIngredient(ingredient);
+
+            if(result)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound(result);
+            }
         }
     }
 }
