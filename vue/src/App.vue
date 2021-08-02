@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }" class="nav-item"
+      <router-link
+        v-bind:to="{ name: 'home' }"
+        class="nav-item"
+        v-if="$store.state.token != ''"
         >Home</router-link
       >
       <router-link
