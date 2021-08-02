@@ -7,9 +7,9 @@
       >Add Ingredients</a
     >
 
-    <form v-on:submit.prevent="newIngredient" v-if="isFormShown">
+    <form v-on:submit.prevent="addNewIngredient" v-if="isFormShown">
       <div class="form-group">
-        <label for="name">Name: </label>
+        <label for="name">Name of Ingredient: </label>
         <input
           required
           type="text"
@@ -21,7 +21,7 @@
       </div>
 
       <div class="form-group">
-        <label for="measurement">Measurement Unit </label>
+        <label for="measurement">Measurement Unit/Qauntity </label>
         <input
           type="text"
           id="measurement"
@@ -31,13 +31,16 @@
         />
       </div>
 
-      <input type="submit" class="btn btn-success" />
-      <input
-        type="button"
+      <button
+        class="btn btn-submit">
+        Submit</button>
+
+      <button
+        type="cancel"
         v-on:click.prevent="resetForm"
-        class="btn btn-success"
-        value="Cancel"
-      />
+        class="btn btn-cancel">
+        Cancel
+      </button>
     </form>
   </div>
 </template>
@@ -49,19 +52,25 @@ export default {
   name: "AddIngredients",
   data() {
     return {
-      newIngredient: {},
+      newIngredient: {
+        name: "",
+        measurement: "",
+      },
 
       isFormShown: false,
     };
   },
 
   methods: {
+    
     addNewIngredient() {
       this.$store.commit("ADD_INGREDIENT", this.newItem);
 
-      recipeService.addIngredient(this.newItem).then((response) => {
-        console.log("Success", response);
-        this.$router.push({ name: "Pantry" });
+      recipeService
+        .addIngredient(this.newItem)
+        .then((response) => {
+          console.log("Success", response);
+          this.$router.push({ name: "Pantry" });
       });
       this.resetForm();
     },
