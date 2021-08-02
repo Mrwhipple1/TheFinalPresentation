@@ -5,6 +5,7 @@ import store from '../store/index'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
+import Pantry from '../views/Pantry.vue'
 import Register from '../views/Register.vue'
 
 Vue.use(Router)
@@ -47,15 +48,23 @@ const router = new Router({
       }
     },
     {
-      path: "/register",
-      name: "register",
-      component: Register,
+      path: "/pantry",
+      name: "pantry",
+      component: Pantry,
       meta: {
-        requiresAuth: false
+       requiresAuth: true
       }
     },
+    {
+     path: "/register",
+     name: "register",
+     component: Register,
+     meta: {
+       requiresAuth: false
+    }
+  },
   ]
-})
+});
 
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
