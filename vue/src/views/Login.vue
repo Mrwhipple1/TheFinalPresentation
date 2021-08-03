@@ -246,5 +246,23 @@ form button:hover {
   color: rgb(255, 0, 0);
   margin: 0px 0px 10px 0px;
 }
+
+@media only screen and (max-width: 800px) {
+  .popup {
+    border-radius: 20px;
+    margin: 0px;
+    width: auto;
+    z-index: 2;
+    background-color: white;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .right-container {
+    color: transparent;
+    height: 500px;
+    width: auto;
+    display: none;
+  }
+}
 </style>
 
