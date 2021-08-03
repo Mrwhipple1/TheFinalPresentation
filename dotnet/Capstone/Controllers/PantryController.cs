@@ -13,19 +13,17 @@ namespace Capstone.Controllers
     public class PantryController : ControllerBase
     {
         private readonly IIngredientsDAO ingredientsDAO;
-        private readonly IUserDAO userDAO;
 
-        public PantryController(IIngredientsDAO ingredientsDAO, IUserDAO userDAO)
+        public PantryController(IIngredientsDAO ingredientsDAO)
         {
             this.ingredientsDAO = ingredientsDAO;
-            this.userDAO = userDAO;
         }
 
         [HttpPost]
         public ActionResult<bool> AddNewIngredient(Ingredients ingredient)
         {
-            ingredient.UserId = 1;
-           
+            ingredient.UserId = ingredient.UserId;
+
             bool result = ingredientsDAO.AddIngredient(ingredient);
 
             if(result)
