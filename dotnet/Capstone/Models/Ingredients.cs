@@ -7,11 +7,11 @@ namespace Capstone.Models
 {
     public class Ingredients
     {
-        public int IngredientId { get; set; }
+        public int Id { get; set; }
 
-        public string IngredientName { get; set; }
+        public string Name { get; set; }
 
-        public string MeasurementUnit { get; set; }
+        public string Measurement { get; set; }
 
         public int UserId { get; set; }
     }

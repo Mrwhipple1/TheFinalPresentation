@@ -16,7 +16,7 @@
           id="name"
           name="name"
           class="form-control"
-          v-model="newIngredient.name"
+          v-model="newItem.name"
         />
       </div>
 
@@ -27,7 +27,7 @@
           id="measurement"
           name="measurement"
           class="form-control"
-          v-model="newIngredient.measurement"
+          v-model="newItem.measurement"
         />
       </div>
 
@@ -48,10 +48,10 @@
 import recipeService from "@/services/RecipeService.js";
 
 export default {
-  name: "AddIngredients",
+  name: "AddIngredient",
   data() {
     return {
-      newIngredient: {
+      newItem: {
         name: "",
         measurement: "",
       },
@@ -62,6 +62,7 @@ export default {
 
   methods: {
     addNewIngredient() {
+      console.log("Reached add ingredient", this.newItem)
       this.$store.commit("ADD_INGREDIENT", this.newItem);
 
       recipeService.addIngredient(this.newItem).then((response) => {
