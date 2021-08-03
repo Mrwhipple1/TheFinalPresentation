@@ -38,8 +38,6 @@ namespace Capstone.DAO
                 cmd.Parameters.AddWithValue("@measurment_unit", ingredient.Measurement);
                 cmd.Parameters.AddWithValue("@user_id", ingredient.UserId);
 
-                  
-
 
                 int count = cmd.ExecuteNonQuery();
 
