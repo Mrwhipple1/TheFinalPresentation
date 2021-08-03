@@ -12,8 +12,4 @@ export default {
     return axios.post(path +'/register', user)
   },
 
-  addIngredient(pantry) {
-    return axios.post(path, pantry)
-}
-
 }

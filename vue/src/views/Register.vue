@@ -9,59 +9,67 @@
           alt="plannr logo"
           class="logo-image"
         />
-        <p>
-          This will be a description of what Plannr is and allows you to do,
-          basically an elevator pitch of the app. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est
-          laborum.
-        </p>
-      </div>
-      <form class="form-register" @submit.prevent="register">
-        <h1 class="h3 mb-3 font-weight-normal" id="register-messege">
-          Create Account
-        </h1>
-        <div class="alert alert-danger" role="alert" v-if="registrationErrors">
-          {{ registrationErrorMsg }}
+        <div class="right-inner-container">
+          <p>
+            This will be a description of what Plannr is and allows you to do,
+            basically an elevator pitch of the app. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
         </div>
-        <label for="username" class="sr-only"></label>
-        <input
-          type="text"
-          id="username"
-          class="form-control"
-          placeholder="Username"
-          v-model="user.username"
-          required
-          autofocus
-        />
-        <label for="password" class="sr-only"></label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          placeholder="Password"
-          v-model="user.password"
-          required
-        />
-        <input
-          type="password"
-          id="confirmPassword"
-          class="form-control"
-          placeholder="Confirm Password"
-          v-model="user.confirmPassword"
-          required
-        />
-        <router-link :to="{ name: 'login' }" class="login-link"
-          >Have an account?</router-link
-        >
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-          Create Account
-        </button>
-      </form>
+      </div>
+      <div class="left-container">
+        <form class="form-register" @submit.prevent="register">
+          <h1 class="h3 mb-3 font-weight-normal" id="register-messege">
+            Create Your Plannr Account Today!
+          </h1>
+          <div
+            class="alert alert-danger"
+            role="alert"
+            v-if="registrationErrors"
+          >
+            {{ registrationErrorMsg }}
+          </div>
+          <label for="username" class="sr-only"></label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+          <label for="password" class="sr-only"></label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Password"
+            v-model="user.password"
+            required
+          />
+          <input
+            type="password"
+            id="confirm-password"
+            class="form-control"
+            placeholder="Confirm Password"
+            v-model="user.confirmPassword"
+            required
+          />
+          <router-link :to="{ name: 'login' }" class="login-link"
+            >Have an account?</router-link
+          >
+          <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Create Account
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -132,6 +140,9 @@ export default {
 }
 
 .popup {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "left-container right-container";
   border-radius: 20px;
   position: absolute;
   top: 50%;
@@ -145,120 +156,156 @@ export default {
 }
 
 .right-container {
-  border-radius: 0px 20px 20px 0px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(0, -50%);
-  width: 800px;
-  height: 600px;
+  display: grid;
+  grid-area: right-container;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "logo"
+    "description";
   background: linear-gradient(to right, #ff4b2b, #ff416c);
-  z-index: 2;
-  width: 50%;
+  border-radius: 0px 20px 20px 0px;
 }
 
-.right-container p {
-  max-width: 400px;
-  padding: 20px 20px 0px 20px;
+.right-inner-container {
+  max-width: 90%;
+  justify-self: center;
+  grid-area: description;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   text-align: left;
 }
 
+.left-container {
+  display: grid;
+  grid-area: left-container;
+}
+
+.form-register {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100px 50px 50px 50px 25px;
+  grid-template-areas:
+    "message"
+    "username"
+    "password"
+    "confirm-password"
+    "register"
+    "submitbtn";
+  max-width: 95%;
+  justify-self: center;
+  align-self: center;
+  margin: 20px 0px 100px 0px;
+}
+
 #register-messege {
+  grid-area: message;
   font-weight: bold;
-  max-width: 325px;
+  max-width: 300px;
   font-size: 23px;
   text-align: left;
   font-family: "Roboto", sans-serif;
   caret-color: transparent;
 }
 
-.logo-image {
-  max-width: 400px;
+#username {
+  grid-area: username;
 }
 
-.form-register {
-  display: flex;
-  margin: 100px 0px 0px 50px;
-  max-width: 66%;
-  flex-direction: column;
+#password {
+  grid-area: password;
+}
 
-  z-index: 4;
+#confirm-password {
+  grid-area: confirm-password;
+}
+
+@media only screen and (max-width: 800px) {
+}
+
+.login-link {
+  grid-area: register;
+  font: bold 13px Arial;
+  margin: 0px 0px 0px 0px;
+  width: 120px;
+  height: 15px;
+  text-decoration: none;
+  background-color: #eeeeee;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-radius: 2em;
+  caret-color: transparent;
+  text-align: center;
+  text-justify: auto;
+}
+
+.login-link:hover {
+  grid-area: register;
+  font: bold 13px Arial;
+  margin: 0px 0px 0px 0px;
+  width: 120px;
+  height: 15px;
+  text-decoration: none;
+  background-color: #bdbdbd;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-radius: 2em;
+  caret-color: transparent;
+  text-align: center;
+  text-justify: auto;
+}
+
+form input {
+  margin: 2px;
+  height: 50px;
+}
+
+.form-control {
+  background-color: #eee;
+  border: none;
+  height: 40px;
 }
 
 form button {
+  grid-area: submitbtn;
   max-width: 150px;
   height: 30px;
+  margin: 0px 20px 0px 0px;
   border: #ffffff;
-  display: inline-block;
-  padding: 0.3em 1.2em;
-  margin: 0 0.3em 0.3em 0;
   border-radius: 2em;
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  font-size: 17px;
   color: #ffffff;
-  background-color: #585858;
+  background-color: #2e2e2e;
   text-align: center;
   transition: all 0.2s;
   caret-color: transparent;
 }
 
 form button:hover {
+  grid-area: submitbtn;
   max-width: 150px;
   height: 30px;
+  margin: 0px 20px 0px 0px;
   border: #ffffff;
-  display: inline-block;
-  padding: 0.3em 1.2em;
-  margin: 0 0.3em 0.3em 0;
   border-radius: 2em;
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  font-size: 17px;
   color: #ffffff;
-  background-color: #141414;
+  background-color: #575656;
   text-align: center;
   transition: all 0.2s;
   caret-color: transparent;
 }
 
-.form-control {
-  background-color: #eee;
-  border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 50%;
-}
-
-.login-link {
-  font-size: 13px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  margin: 0px 0px 10px 0px;
-  width: 120px;
-  text-decoration: none;
-  background-color: #dddddd;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
-  border-radius: 2em;
-  caret-color: transparent;
-}
-
-.login-link:hover {
-  font-size: 13px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-  margin: 0px 0px 10px 0px;
-  width: 120px;
-  text-decoration: none;
-  background-color: #bdbbbb;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
-  caret-color: transparent;
+.logo-image {
+  max-width: 400px;
+  grid-area: logo;
 }
 
 .alert {
@@ -267,5 +314,46 @@ form button:hover {
   font-family: "Roboto", sans-serif;
   color: rgb(255, 0, 0);
   margin: 0px 0px 10px 0px;
+}
+
+@media only screen and (max-width: 800px) {
+  .popup {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "left-container"
+      "right-container";
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    z-index: 2;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+    grid-template-rows: 350px 500px;
+  }
+
+  .form-signin {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "message message"
+      "username password"
+      "register register"
+      "submitbtn submitbtn";
+
+    grid-template-rows: 100px 50px 25px;
+  }
+
+  .right-container {
+    width: 400px;
+    height: 530px;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+  }
 }
 </style>
