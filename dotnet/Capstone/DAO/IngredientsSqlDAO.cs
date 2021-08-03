@@ -12,8 +12,8 @@ namespace Capstone.DAO
     {
         private readonly string connectionString;
 
-        private string sqlAddIngredient = "INSERT INTO ingredients (ingredient_name, measurement_unit, ) " +
-            "VALUES ( @ingredient_name, @measurment_unit );";
+        private string sqlAddIngredient = "INSERT INTO ingredients (ingredient_name, measurment_unit, user_id) " +
+            " VALUES (@ingredient_name, @measurment_unit, @user_id); ";
 
 
         public IngredientsSqlDAO(string dbConnectionString)
@@ -21,7 +21,7 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public bool AddIngredient(Ingredients ingredients)
+        public bool AddIngredient(Ingredients ingredient)
         {
             bool result = false;
 
@@ -33,8 +33,9 @@ namespace Capstone.DAO
 
                     SqlCommand cmdAddIngredient = new SqlCommand(sqlAddIngredient, conn);
 
-                    cmdAddIngredient.Parameters.AddWithValue("@ingredient_name", ingredients.IngredientName);
-                    cmdAddIngredient.Parameters.AddWithValue("@measurment_unit", ingredients.MeasurementUnit);
+                    cmdAddIngredient.Parameters.AddWithValue("@ingredient_name", ingredient.Name);
+                    cmdAddIngredient.Parameters.AddWithValue("@measurment_unit", ingredient.Measurement);
+                    cmdAddIngredient.Parameters.AddWithValue("@user_id", ingredient.UserId);
 
                     int count = cmdAddIngredient.ExecuteNonQuery();
 

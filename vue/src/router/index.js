@@ -52,7 +52,7 @@ const router = new Router({
       name: "pantry",
       component: Pantry,
       meta: {
-       requiresAuth: true
+       requiresAuth: false
       }
     },
     {
