@@ -4,7 +4,7 @@
       v-on:click="isFormShown = true"
       v-if="!isFormShown"
       class="btn btn-success"
-      >Add Ingredients</a
+      >Add an Ingredient</a
     >
 
     <form v-on:submit.prevent="addNewIngredient" v-if="isFormShown">
@@ -31,15 +31,13 @@
         />
       </div>
 
-      <button
-        type="submit"
-        class="btn btn-submit">
-        Submit</button>
+      <button class="btn btn-submit">Submit</button>
 
       <button
         type="cancel"
         v-on:click.prevent="resetForm"
-        class="btn btn-cancel">
+        class="btn btn-cancel"
+      >
         Cancel
       </button>
     </form>
@@ -63,16 +61,13 @@ export default {
   },
 
   methods: {
-    
     addNewIngredient() {
       console.log("Reached add ingredient", this.newItem)
       this.$store.commit("ADD_INGREDIENT", this.newItem);
 
-      recipeService
-        .addIngredient(this.newItem)
-        .then((response) => {
-          console.log("Success", response);
-          this.$router.push({ name: "Pantry" });
+      recipeService.addIngredient(this.newItem).then((response) => {
+        console.log("Success", response);
+        this.$router.push({ name: "Pantry" });
       });
       this.resetForm();
     },
