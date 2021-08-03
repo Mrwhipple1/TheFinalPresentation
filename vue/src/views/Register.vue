@@ -306,6 +306,7 @@ form button:hover {
 .logo-image {
   max-width: 400px;
   grid-area: logo;
+  margin-top: 20px;
 }
 
 .alert {

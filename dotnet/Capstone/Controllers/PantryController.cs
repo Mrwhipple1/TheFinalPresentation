@@ -22,7 +22,6 @@ namespace Capstone.Controllers
         [HttpPost]
         public ActionResult<bool> AddNewIngredient(Ingredients ingredient)
         {
-            ingredient.UserId = ingredient.UserId;
 
             bool result = ingredientsDAO.AddIngredient(ingredient);
 
