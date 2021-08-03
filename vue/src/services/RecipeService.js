@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const path =  '/login';
+const path =  '/pantry';
 
 export default {
-    
+
   addIngredient(pantry) {
     return axios.post(path, pantry)
 }
