@@ -10,25 +10,19 @@ namespace Capstone.Controllers
 {
     [Route("[Controller]")]
     [ApiController]
-    public class IngredientController : ControllerBase
+    public class PantryController : ControllerBase
     {
-        private readonly IUserDAO userDAO;
         private readonly IIngredientsDAO ingredientsDAO;
 
-        public IngredientController(IIngredientsDAO ingredientsDAO, IUserDAO userDAO)
+        public PantryController(IIngredientsDAO ingredientsDAO)
         {
             this.ingredientsDAO = ingredientsDAO;
-            this.userDAO = userDAO;
         }
 
         [HttpPost]
-        public ActionResult<bool> AddNewIngredient()
+        public ActionResult<bool> AddNewIngredient(Ingredients ingredient)
         {
-            Ingredients ingredient = new Ingredients();
-            ingredient.IngredientId = 1;
-            ingredient.IngredientName = "";
-            ingredient.MeasurementUnit = "";
-            ingredient.UserId = 1;
+            ingredient.UserId = ingredient.UserId;
 
             bool result = ingredientsDAO.AddIngredient(ingredient);
 

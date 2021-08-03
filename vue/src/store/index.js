@@ -19,7 +19,9 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+
+    ingredients: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -39,10 +41,11 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     ADD_INGREDIENT(state, pantry) {
-      const newIngredient = state.ingredients.reduce((max, item) => {
+      console.log("Reached Mutator", pantry)
+      const newItem = state.ingredients.reduce((max, item) => {
         return (item.id > max) ? max = item.id : max;
       }, -1)
-      pantry.id = newIngredient + 1;
+      pantry.id = newItem + 1;
       state.ingredients.push(pantry);
     }
   }

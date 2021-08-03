@@ -4,40 +4,42 @@
       v-on:click="isFormShown = true"
       v-if="!isFormShown"
       class="btn btn-success"
-      >Add Ingredients</a
+      >Add an Ingredient</a
     >
 
-    <form v-on:submit.prevent="newIngredient" v-if="isFormShown">
+    <form v-on:submit.prevent="addNewIngredient" v-if="isFormShown">
       <div class="form-group">
-        <label for="name">Name: </label>
+        <label for="name">Name of Ingredient: </label>
         <input
           required
           type="text"
           id="name"
           name="name"
           class="form-control"
-          v-model="newIngredient.name"
+          v-model="newItem.name"
         />
       </div>
 
       <div class="form-group">
-        <label for="measurement">Measurement Unit </label>
+        <label for="measurement">Measurement Unit/Qauntity </label>
         <input
           type="text"
           id="measurement"
           name="measurement"
           class="form-control"
-          v-model="newIngredient.measurement"
+          v-model="newItem.measurement"
         />
       </div>
 
-      <input type="submit" class="btn btn-success" />
-      <input
-        type="button"
+      <button class="btn btn-submit">Submit</button>
+
+      <button
+        type="cancel"
         v-on:click.prevent="resetForm"
-        class="btn btn-success"
-        value="Cancel"
-      />
+        class="btn btn-cancel"
+      >
+        Cancel
+      </button>
     </form>
   </div>
 </template>
@@ -46,10 +48,13 @@
 import recipeService from "@/services/RecipeService.js";
 
 export default {
-  name: "AddIngredients",
+  name: "AddIngredient",
   data() {
     return {
-      newIngredient: {},
+      newItem: {
+        name: "",
+        measurement: "",
+      },
 
       isFormShown: false,
     };
@@ -57,6 +62,7 @@ export default {
 
   methods: {
     addNewIngredient() {
+      console.log("Reached add ingredient", this.newItem)
       this.$store.commit("ADD_INGREDIENT", this.newItem);
 
       recipeService.addIngredient(this.newItem).then((response) => {
