@@ -5,6 +5,10 @@ const path = '/pantry';
 
 export default {
 
+  allIngredients() {
+    return axios.get(path)
+  },
+
   addIngredient(pantry) {
     pantry.userId = store.state.user.userId;
     console.log("Reached add ingredient in service", pantry)

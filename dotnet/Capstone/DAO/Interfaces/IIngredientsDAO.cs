@@ -9,5 +9,7 @@ namespace Capstone.DAO.Interfaces
     public interface IIngredientsDAO
     {
         bool AddIngredient(Ingredients ingredient);
+
+        List<Ingredients> GetAllIngredients(int userId);
     }
 }
