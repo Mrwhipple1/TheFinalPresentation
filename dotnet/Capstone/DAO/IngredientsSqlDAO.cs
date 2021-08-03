@@ -23,7 +23,7 @@ namespace Capstone.DAO
         }
 
 
-    public bool AddIngredient(Ingredients ingredient)
+    public bool AddIngredient(Ingredient ingredient)
     {
         bool result = false;
 
@@ -55,9 +55,9 @@ namespace Capstone.DAO
         }
         return result;
     }
-    public List<Ingredients> GetAllIngredients(int userId)
+    public List<Ingredient> GetAllIngredients(int userId)
         {
-            List<Ingredients> ingredients = new List<Ingredients>();
+            List<Ingredient> ingredients = new List<Ingredient>();
 
             try
             {
@@ -73,7 +73,7 @@ namespace Capstone.DAO
 
                     while (reader.Read() == true)
                     {
-                        Ingredients ingredients1 = new Ingredients();
+                        Ingredient ingredients1 = new Ingredient();
 
                         ingredients1.Name = Convert.ToString(reader["name"]);
                         ingredients1.Measurement = Convert.ToString(reader["measurment"]);
@@ -84,7 +84,7 @@ namespace Capstone.DAO
             }
             catch (Exception ex)
             {
-                ingredients = new List<Ingredients>();
+                ingredients = new List<Ingredient>();
             }
             return ingredients;
         }

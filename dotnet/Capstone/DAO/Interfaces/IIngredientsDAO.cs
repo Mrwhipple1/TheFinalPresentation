@@ -8,8 +8,8 @@ namespace Capstone.DAO.Interfaces
 {
     public interface IIngredientsDAO
     {
-        bool AddIngredient(Ingredients ingredient);
+        bool AddIngredient(Ingredient ingredient);
 
-        List<Ingredients> GetAllIngredients(int userId);
+        List<Ingredient> GetAllIngredients(int userId);
     }
 }

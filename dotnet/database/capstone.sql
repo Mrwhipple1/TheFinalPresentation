@@ -29,11 +29,19 @@ CREATE TABLE ingredients (
 
 ingredient_id int IDENTITY(1,1) NOT NULL,
 ingredient_name varchar(50) NOT NULL,
-measurment_unit varchar(30) NOT NULL,
 user_id integer NOT NULL,
 --CONSTRAINT FK_user_id FOREIGN KEY (user_id),
 CONSTRAINT PK_ingredients_ingredient_id PRIMARY KEY (ingredient_id)
 )
+
+CREATE TABLE recipe_ingredients(
+ingredient_id int NOT NULL,
+recipe_id int NOT NULL,
+measurment_unit varchar(30) NOT NULL
+)
+
+
+
 --populate default data
 -- user/password
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
