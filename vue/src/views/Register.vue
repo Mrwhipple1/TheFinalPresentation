@@ -10,16 +10,12 @@
           class="logo-image"
         />
         <div class="right-inner-container">
-          <p>
-            This will be a description of what Plannr is and allows you to do,
-            basically an elevator pitch of the app. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+          <p class="description">
+            Welcome to Plannr! Your number one tool for planning your meals!
+            With Plannr you can add ingredients, create meals, and add them
+            together to create any recipe you want! Easily assign those recipes
+            to dates and times to map out what you will eat for the week, its
+            that simple!
           </p>
         </div>
       </div>
@@ -178,6 +174,14 @@ export default {
 .left-container {
   display: grid;
   grid-area: left-container;
+}
+
+.description {
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+  font-weight: 200;
+  font-size: 27px;
+  text-align: center;
 }
 
 .form-register {

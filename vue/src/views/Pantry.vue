@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>Your Pantry</h1>
-    <h2>See and add your ingredients here</h2>
+    <h1>Your Kitchen</h1>
+    <h2>See and add your ingredients here, and create recipes too!</h2>
 
-    <add-ingredient />
+    <div class="ingredient-container"><add-ingredient /></div>
+    <div class="recipe-container"></div>
   </div>
 </template>
 
