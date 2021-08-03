@@ -327,7 +327,7 @@ form button:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -90%);
     width: 400px;
     height: 400px;
     z-index: 2;
@@ -351,7 +351,7 @@ form button:hover {
 
   .right-container {
     width: 400px;
-    height: 530px;
+    height: 550px;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
   }
