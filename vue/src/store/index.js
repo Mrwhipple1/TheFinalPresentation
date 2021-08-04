@@ -42,17 +42,13 @@ export default new Vuex.Store({
     },
     ADD_INGREDIENT(state, pantry) {
       console.log("Reached Mutator", pantry)
-      const newItem = state.ingredients.reduce((max, item) => {
-        return (item.id > max) ? max = item.id : max;
-      }, -1)
-      pantry.id = newItem + 1;
       state.ingredients.push(pantry);
     },
     LIST_INGREDIENTS(state, ingredients) {
       console.log("Reached mutator", ingredients)
       state.ingredients = ingredients;
 
-      
+
     }
   }
 })

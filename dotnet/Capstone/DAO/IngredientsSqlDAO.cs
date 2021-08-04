@@ -72,11 +72,11 @@ namespace Capstone.DAO
 
                     while (reader.Read() == true)
                     {
-                        Ingredient ingredients1 = new Ingredient();
+                        Ingredient ingredient = new Ingredient();
 
-                        ingredients1.Name = Convert.ToString(reader["ingredient_name"]);
+                        ingredient.Name = Convert.ToString(reader["ingredient_name"]);
 
-                        ingredients.Add(ingredients1);
+                        ingredients.Add(ingredient);
                     }
                 }
             }

@@ -9,14 +9,14 @@
 
     <form v-on:submit.prevent="addNewIngredient" v-if="isFormShown">
       <div class="form-group">
-        <label for="name">Name of Ingredient: </label>
+        <label for="IngredientName">Name of Ingredient: </label>
         <input
           required
           type="text"
-          id="name"
-          name="name"
+          id="ingredienName"
+          name="ingredienName"
           class="form-control"
-          v-model="newItem.name"
+          v-model="newItem.ingredientName"
         />
       </div>
 
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       newItem: {
-        name: "",
+        ingredientName: "",
       },
 
       isFormShown: false,
@@ -50,12 +50,12 @@ export default {
 
   methods: {
     addNewIngredient() {
-      console.log("Reached add ingredient", this.newItem)
+      console.log("Reached add ingredient", this.newItem);
       this.$store.commit("ADD_INGREDIENT", this.newItem);
 
       recipeService.addIngredient(this.newItem).then((response) => {
         console.log("Success", response);
-        this.$router.push({ name: "Pantry" });
+        this.$router.push({ ingredientName: "Pantry" });
       });
       this.resetForm();
     },
@@ -69,8 +69,4 @@ export default {
 </script>
 
 <style>
-
-
-
-
 </style>
