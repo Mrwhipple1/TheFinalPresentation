@@ -47,6 +47,10 @@ export default new Vuex.Store({
       }, -1)
       pantry.id = newItem + 1;
       state.ingredients.push(pantry);
+    },
+    LIST_INGREDIENTS(state, ingredients) {
+      console.log("Reached mutator", ingredients)
+      state.ingredients = ingredients;
     }
   }
 })

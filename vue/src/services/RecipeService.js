@@ -6,6 +6,7 @@ const path = '/pantry';
 export default {
 
   allIngredients() {
+    console.log("Reached all ingredients in service")
     return axios.get(path)
   },
 
