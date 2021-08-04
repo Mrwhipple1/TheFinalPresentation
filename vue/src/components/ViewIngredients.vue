@@ -30,7 +30,7 @@ export default {
         },
     },
 
-    craeted() {
+    created() {
         this.message = "";
 
         recipeService
