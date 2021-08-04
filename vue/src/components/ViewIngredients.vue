@@ -6,7 +6,6 @@
           <th>List Of Ingredients</th>
           <tr v-for="(ingredient, id) in ingredients" v-bind:key="id">
           <td>{{ ingredients.name }}</td>
-          <td>{{ingredients.measurment}}</td>
         </tr>
       </tbody>
     </table>

@@ -25,7 +25,7 @@ namespace Capstone.Controllers
 
             bool result = ingredientsDAO.AddIngredient(ingredient);
 
-            if(result)
+            if (result)
             {
                 return Ok(result);
             }
@@ -35,15 +35,15 @@ namespace Capstone.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("{userId}")]
         public ActionResult<List<Ingredient>> ListAllIngredients(int userId)
         {
             List<Ingredient> ingredients = ingredientsDAO.GetAllIngredients(userId);
-            foreach(Ingredient ingredients1 in ingredients)
+            foreach (Ingredient ingredients1 in ingredients)
             {
-                return NotFound(ingredients1);
+                return Ok(ingredients1);
             }
-            return Ok(ingredients);
+            return NotFound(ingredients);
         }
     }
 }
