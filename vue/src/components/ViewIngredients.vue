@@ -30,11 +30,15 @@ export default {
         },
     },
 
-    craeted() {
+    created() {
         this.message = "";
 
+        console.log("Reached all ingredients in component")
         recipeService
         .allIngredients()
+        .then ((response) => {
+          this.$store.commit("LIST_INGREDIENTS", response.data);
+        })
     }
 };
 </script>
