@@ -38,12 +38,13 @@ namespace Capstone.Controllers
         [HttpGet("{userId}")]
         public ActionResult<List<Ingredient>> ListAllIngredients(int userId)
         {
+
+
             List<Ingredient> ingredients = ingredientsDAO.GetAllIngredients(userId);
-            foreach (Ingredient ingredients1 in ingredients)
-            {
-                return Ok(ingredients1);
-            }
-            return NotFound(ingredients);
+            
+            return Ok(ingredients);
+            
+            //return NotFound(ingredients);
         }
     }
 }
