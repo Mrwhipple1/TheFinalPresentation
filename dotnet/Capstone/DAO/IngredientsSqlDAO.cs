@@ -12,10 +12,10 @@ namespace Capstone.DAO
     {
         private readonly string connectionString;
 
-        private string sqlAddIngredient = "INSERT INTO ingredients (ingredient_name, measurment_unit, user_id) " +
-            " VALUES (@ingredient_name, @measurment_unit, @user_id); ";
+        private string sqlAddIngredient = "INSERT INTO ingredients (ingredient_name, user_id) " +
+            " VALUES (@ingredient_name, @user_id); ";
 
-        private string sqlGetAllIngredients = "SELECT ingredient_name, measurment_unit FROM ingredients WHERE user_id = @user_id";
+        private string sqlGetAllIngredients = "SELECT ingredient_name FROM ingredients WHERE user_id = @user_id";
 
         public IngredientsSqlDAO(string dbConnectionString)
         {
@@ -23,39 +23,38 @@ namespace Capstone.DAO
         }
 
 
-    public bool AddIngredient(Ingredient ingredient)
-    {
-        bool result = false;
-
-        try
+        public bool AddIngredient(Ingredient ingredient)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            bool result = false;
+
+            try
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(sqlAddIngredient, conn);
-
-
-                cmd.Parameters.AddWithValue("@ingredient_name", ingredient.Name);
-                cmd.Parameters.AddWithValue("@measurment_unit", ingredient.Measurement);
-                cmd.Parameters.AddWithValue("@user_id", ingredient.UserId);
-
-
-                int count = cmd.ExecuteNonQuery();
-
-                if (count > 0)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    result = true;
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlAddIngredient, conn);
+
+
+                    cmd.Parameters.AddWithValue("@ingredient_name", ingredient.Name);
+                    cmd.Parameters.AddWithValue("@user_id", ingredient.UserId);
+
+
+                    int count = cmd.ExecuteNonQuery();
+
+                    if (count > 0)
+                    {
+                        result = true;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            return result;
         }
-        catch (Exception ex)
-        {
-            result = false;
-        }
-        return result;
-    }
-    public List<Ingredient> GetAllIngredients(int userId)
+        public List<Ingredient> GetAllIngredients(int userId)
         {
             List<Ingredient> ingredients = new List<Ingredient>();
 
@@ -75,8 +74,7 @@ namespace Capstone.DAO
                     {
                         Ingredient ingredients1 = new Ingredient();
 
-                        ingredients1.Name = Convert.ToString(reader["name"]);
-                        ingredients1.Measurement = Convert.ToString(reader["measurment"]);
+                        ingredients1.Name = Convert.ToString(reader["ingredient_name"]);
 
                         ingredients.Add(ingredients1);
                     }
@@ -88,5 +86,5 @@ namespace Capstone.DAO
             }
             return ingredients;
         }
-}
+    }
 }

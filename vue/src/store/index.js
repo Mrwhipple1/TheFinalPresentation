@@ -51,6 +51,8 @@ export default new Vuex.Store({
     LIST_INGREDIENTS(state, ingredients) {
       console.log("Reached mutator", ingredients)
       state.ingredients = ingredients;
+
+      
     }
   }
 })

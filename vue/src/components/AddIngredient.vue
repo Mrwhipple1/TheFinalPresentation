@@ -20,17 +20,6 @@
         />
       </div>
 
-      <div class="form-group">
-        <label for="measurement">Measurement Unit/Qauntity </label>
-        <input
-          type="text"
-          id="measurement"
-          name="measurement"
-          class="form-control"
-          v-model="newItem.measurement"
-        />
-      </div>
-
       <button class="btn btn-submit">Submit</button>
 
       <button
@@ -53,7 +42,6 @@ export default {
     return {
       newItem: {
         name: "",
-        measurement: "",
       },
 
       isFormShown: false,

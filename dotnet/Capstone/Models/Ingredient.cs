@@ -11,8 +11,6 @@ namespace Capstone.Models
 
         public string Name { get; set; }
 
-        public string Measurement { get; set; }
-
         public int UserId { get; set; }
     }
 }
