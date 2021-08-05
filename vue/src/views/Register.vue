@@ -11,11 +11,11 @@
         />
         <div class="right-inner-container">
           <p class="description">
-            Welcome to Plannr! Your number one tool for planning your meals!
-            With Plannr you can add ingredients, create meals, and add them
-            together to create any recipe you want! Easily assign those recipes
-            to dates and times to map out what you will eat for the week, its
-            that simple!
+            Welcome to Plannr! Your number one tool for planning meals! With
+            Plannr you can add ingredients, create meals, and add them together
+            to create any recipe you want! Easily assign those recipes to dates
+            and times to map out what you will eat for the week, its that
+            simple!
           </p>
         </div>
       </div>
