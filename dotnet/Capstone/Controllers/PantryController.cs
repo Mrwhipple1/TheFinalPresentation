@@ -43,13 +43,13 @@ namespace Capstone.Controllers
 
 
             List<Ingredient> ingredients = ingredientsDAO.GetAllIngredients(userId);
-            
+
             return Ok(ingredients);
-            
+
             //return NotFound(ingredients);
         }
 
-        [HttpPost]
+        [HttpPost("addrecipe/{userId}")]
         public ActionResult<bool> AddNewRecipe(Recipe recipe)
         {
 

@@ -10,11 +10,11 @@ export default {
     console.log("Reached add ingredient in service", pantry)
     return axios.post(path, pantry)
   },
-  
+
   addRecipe(pantry) {
     pantry.userId = store.state.user.userId;
     console.log("Reached add ingredient in service", pantry)
-    return axios.post(path, pantry)
+    return axios.post(path + "/addrecipe" + pantry)
   },
 
   allIngredients() {
