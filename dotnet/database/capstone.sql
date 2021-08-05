@@ -8,10 +8,10 @@ BEGIN
 	DROP DATABASE final_capstone;
 END
 
-CREATE DATABASE final_capstone
+CREATE DATABASE final_capstone;
 GO
 
-USE final_capstone
+USE final_capstone;
 GO
 
 --create tables
@@ -23,7 +23,7 @@ CREATE TABLE users (
 	user_role varchar(50) NOT NULL
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 
-)
+);
 
 CREATE TABLE ingredients (
 
@@ -32,13 +32,23 @@ ingredient_name varchar(50) NOT NULL,
 user_id integer NOT NULL,
 --CONSTRAINT FK_user_id FOREIGN KEY (user_id),
 CONSTRAINT PK_ingredients_ingredient_id PRIMARY KEY (ingredient_id)
-)
+);
 
-CREATE TABLE recipe_ingredients(
+CREATE TABLE recipe_ingredients (
 ingredient_id int NOT NULL,
 recipe_id int NOT NULL,
 measurment_unit varchar(30) NOT NULL
-)
+CONSTRAINT PK_recipe_ingredient_ingredient_id_recipe_id PRIMARY KEY (ingredient_id, recipe_id)
+);
+
+CREATE TABLE recipe (
+recipe_id int identity(1,1) NOT NULL,
+recipe_name varchar(50) NOT NULL,
+recipe_description varchar (2200) NOT NULL,
+user_id int NOT NULL,
+CONSTRAINT PK_recipe_recipe_id PRIMARY KEY (recipe_id)
+);
+
 
 
 
@@ -50,7 +60,19 @@ INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','Yh
 
 ALTER TABLE ingredients
 ADD FOREIGN KEY(user_id)
-REFERENCES users(user_id)
+REFERENCES users(user_id);
+
+ALTER TABLE recipe
+ADD FOREIGN KEY(user_id)
+REFERENCES users(user_id);
+
+ALTER TABLE recipe_ingredients
+ADD FOREIGN KEY(ingredient_id)
+REFERENCES ingredients(ingredient_id);
+
+ALTER TABLE recipe_ingredients
+ADD FOREIGN KEY(recipe_id)
+REFERENCES recipe(recipe_id);
 
 
 
