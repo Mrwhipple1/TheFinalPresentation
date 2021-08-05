@@ -13,20 +13,18 @@ namespace Capstone.DAO
 
         private readonly string connectionString;
 
-        private string sqlAddRecipe = "";
+        private string sqlAddRecipe = "INSERT INTO recipe (recipe_name, recipe_description, user_id) " +
+            "VALUES(@recipe_name, @recipe_description, @user_id);";
 
-        private string sqlGetRecipes = "";
+        private string sqlGetRecipesByName = "SELECT recipe_name, recipe_description " +
+            "FROM recipe WHERE recipe_name = @recipe_name;";
 
-        private string sqlGetRecipes = "";
-
-
-
+        private string sqlGetRecipes = "SELECT recipe_name, recipe_description FROM recipe;";
 
         public RecipeSqlDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
         }
-
 
         public bool Addrecipe(Recipe recipe)
         {
@@ -34,13 +32,13 @@ namespace Capstone.DAO
 
             try
             {
-                using (SqlConnection conn = new SqlConnection)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sqlAddRecipe, conn);
 
-                    cmd.Parameters.AddWithValue("@recipe_name", recipe.RecipeName);
+                    cmd.Parameters.AddWithValue("@recipe_name", recipe.RecipeName.ToLower());
                     cmd.Parameters.AddWithValue("@recipe_description", recipe.RecipeDescription);
                     cmd.Parameters.AddWithValue("@user_id", recipe.UserId);
 
@@ -50,7 +48,6 @@ namespace Capstone.DAO
                     {
                         result = true;
                     }
-
                 }
             }
             catch (Exception ex)
@@ -58,22 +55,76 @@ namespace Capstone.DAO
                 result = false;
             }
             return result;
-
-
-
         }
 
-
-        public bool GetRecipes(string name)
+        public List<Recipe> GetRecipes()
         {
-            return true;
+
+            List<Recipe> recipes = new List<Recipe>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlGetRecipes, conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read() == true)
+                    {
+                        Recipe recipe = new Recipe();
+
+                        recipe.RecipeName = Convert.ToString(reader["recipe_name"]);
+                        recipe.RecipeDescription = Convert.ToString(reader["recipe_description"]);
+
+                        recipes.Add(recipe);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                recipes = new List<Recipe>();
+            }
+            return recipes;
         }
 
-        public bool GetRecipe()
+        public List<Recipe> GetRecipeByName(string name)
         {
-            return true;
+            List<Recipe> recipes = new List<Recipe>();
+
+            name = "%" + name + "%";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(sqlGetRecipesByName, conn);
+
+                    cmd.Parameters.AddWithValue("@recipe_name", name.ToLower());
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read() == true)
+                    {
+                        Recipe recipe = new Recipe();
+
+                        recipe.RecipeName = Convert.ToString(reader["recipe_name"]);
+                        recipe.RecipeDescription = Convert.ToString(reader["recipe_description"]);
+
+                        recipes.Add(recipe);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                recipes = new List<Recipe>();
+            }
+            return recipes;
         }
-
-
     }
 }
