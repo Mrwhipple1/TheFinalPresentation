@@ -9,7 +9,7 @@ namespace Capstone.Models
     {
         public int Id { get; set; }
 
-        public string ingredientName { get; set; }
+        public string IngredientName { get; set; }
 
         public int UserId { get; set; }
     }
