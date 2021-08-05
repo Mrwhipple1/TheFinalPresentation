@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.DAO.Interfaces
 {
-    interface IRecipeDAO
+    public interface IRecipeDAO
     {
         bool Addrecipe(Recipe recipe);
         List<Recipe> GetRecipes();

@@ -15,9 +15,10 @@ namespace Capstone.Controllers
         private readonly IIngredientsDAO ingredientsDAO;
         private readonly IRecipeDAO recipeDAO;
 
-        public PantryController(IIngredientsDAO ingredientsDAO)
+        public PantryController(IIngredientsDAO ingredientsDAO, IRecipeDAO recipeDAO)
         {
             this.ingredientsDAO = ingredientsDAO;
+            this.recipeDAO = recipeDAO;
         }
 
         [HttpPost]
@@ -48,15 +49,14 @@ namespace Capstone.Controllers
             //return NotFound(ingredients);
         }
 
-
         [HttpPost]
-        public ActionResult<bool> AddRecipe(Recipe recipe)
+        public ActionResult<bool> AddNewRecipe(Recipe recipe)
         {
-            bool result = recipeDAO.Addrecipe(recipe);
 
-            if (result) 
+            bool result = recipeDAO.AddRecipe(recipe);
+
+            if (result)
             {
-
                 return Ok(result);
             }
             else
@@ -64,5 +64,6 @@ namespace Capstone.Controllers
                 return NotFound(result);
             }
         }
+
     }
 }

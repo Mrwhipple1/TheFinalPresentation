@@ -14,10 +14,10 @@ namespace Capstone.DAO
         private readonly string connectionString;
 
         private string sqlAddRecipe = "INSERT INTO recipe (recipe_name, recipe_description, user_id) " +
-            "VALUES(@recipe_name, @recipe_description, @user_id);";
+            " VALUES(@recipe_name, @recipe_description, @user_id);";
 
         private string sqlGetRecipesByName = "SELECT recipe_name, recipe_description " +
-            "FROM recipe WHERE recipe_name = @recipe_name;";
+            " FROM recipe WHERE recipe_name = @recipe_name;";
 
         private string sqlGetRecipes = "SELECT recipe_name, recipe_description FROM recipe;";
 
@@ -26,7 +26,7 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public bool Addrecipe(Recipe recipe)
+        public bool AddRecipe(Recipe recipe)
         {
             bool result = false;
 
