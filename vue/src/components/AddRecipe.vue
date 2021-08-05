@@ -1,0 +1,67 @@
+<template>
+  <div class="container">
+    <a
+      v-on:click="isFormShown = true"
+      v-if="!isFormShown"
+      class="btn btn-success"
+      >Add a Recipe</a
+    >
+    <form>
+      <div class="form-group">
+        <label for="RecipeName"> Name of Recipe</label>
+        <input
+          type="text"
+          required
+          id="RecipeName"
+          name="RecipeName"
+          class="form-control"
+          v-model="newItem.RecipeName"
+        />
+
+        <label for="RecipeDescription"> Recipe Description</label>
+        <input
+          type="text"
+          id="RecipeDescription"
+          name="recipeDescription"
+          class="form-control"
+          v-model="newItem.RecipeDescription"
+        />
+
+        <button class="btn btn-submit">Submit</button>
+        <button
+          type="cancel"
+          v-on:click.prevent="resetForm"
+          class="btn btn-cancel"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</template>
+
+
+<script>
+export default {
+    name: "AddRecipe",
+    data() {
+        return {
+            newItem: {
+                RecipeName: "",
+            },
+
+            isFormShown: false,
+        };
+    }
+},
+
+methods: {
+    addNewRecipe() {
+        console.log("reached add recipe", this.newItem);
+        this.$store.commit("ADD_RECIPE", this.newItem);
+        
+    }
+}
+
+
+</script>
