@@ -74,7 +74,7 @@ namespace Capstone.DAO
                     {
                         Ingredient ingredient = new Ingredient();
 
-                        ingredient.IngredientName = Convert.ToString(reader["ingredient_name"]);
+                        ingredient.Name = Convert.ToString(reader["ingredient_name"]);
 
                         ingredients.Add(ingredient);
                     }
