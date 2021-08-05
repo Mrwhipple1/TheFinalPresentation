@@ -13,6 +13,7 @@ namespace Capstone.Controllers
     public class PantryController : ControllerBase
     {
         private readonly IIngredientsDAO ingredientsDAO;
+        private readonly IRecipeDAO recipeDAO;
 
         public PantryController(IIngredientsDAO ingredientsDAO)
         {
@@ -41,10 +42,27 @@ namespace Capstone.Controllers
 
 
             List<Ingredient> ingredients = ingredientsDAO.GetAllIngredients(userId);
-            
+
             return Ok(ingredients);
-            
+
             //return NotFound(ingredients);
+        }
+
+
+        [HttpPost]
+        public ActionResult<bool> AddRecipe(Recipe recipe)
+        {
+            bool result = recipeDAO.Addrecipe(recipe);
+
+            if (result) 
+            {
+
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound(result);
+            }
         }
     }
 }
