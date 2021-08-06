@@ -5,17 +5,19 @@
 
     <add-ingredient />
     <view-ingredients />
+    <add-recipe />
   </div>
 </template>
 
 <script>
 import AddIngredient from "@/components/AddIngredient.vue";
 import ViewIngredients from "@/components/ViewIngredients.vue";
-
+import AddRecipe from "@/components/AddRecipe.vue";
 export default {
   components: {
     AddIngredient,
     ViewIngredients,
+    AddRecipe,
   },
 };
 </script>

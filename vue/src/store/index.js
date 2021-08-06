@@ -49,6 +49,12 @@ export default new Vuex.Store({
       state.ingredients = ingredients;
 
 
+    },
+
+    ADD_RECIPE(state, recipeName) {
+      console.log("Reached mutator", recipeName)
+      state.recipeName = recipeName;
+
     }
   }
-})
+});

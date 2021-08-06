@@ -17,6 +17,13 @@ export default {
     return axios.get(path + "/" + userId)
   },
 
+  addRecipe(){
+    const userId = store.state.user.userId;
+    console.log("Reached add recipe in service")
+    return axios.post(path + "/" + userId)
+
+      }
+
 
 
 }

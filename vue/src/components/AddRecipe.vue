@@ -42,26 +42,37 @@
 
 
 <script>
+
+import recipeService from "@/services/RecipeService.js";
+
+
 export default {
-    name: "AddRecipe",
-    data() {
-        return {
-            newItem: {
-                RecipeName: "",
-            },
+  name: "AddRecipe",
+  data() {
+    return {
+      newItem: {
+        RecipeName: "",
+      },
 
-            isFormShown: false,
-        };
-    }
-},
+      isFormShown: false,
+    };
+  },
 
-methods: {
+  methods: {
     addNewRecipe() {
-        console.log("reached add recipe", this.newItem);
-        this.$store.commit("ADD_RECIPE", this.newItem);
-        
-    }
-}
+      console.log("reached add recipe", this.newItem);
+      this.$store.commit("ADD_RECIPE", this.newItem);
 
-
+      recipeService.addRecipe(this.newItem).then((response) => {
+        console.log("Success", response);
+        this.$router.push({ recipeName: "Pantry" });
+      });
+      this.resetForm();
+    },
+    resetForm() {
+      this.newItem = {};
+      this.isFormShown = false;
+    },
+  },
+};
 </script>
