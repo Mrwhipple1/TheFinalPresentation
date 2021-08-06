@@ -5,16 +5,16 @@ const path = '/pantry';
 
 export default {
   
-  addIngredient(pantry) {
-    pantry.userId = store.state.user.userId;
-    console.log("Reached add ingredient in service", pantry)
-    return axios.post(path, pantry)
+  addIngredient(ingredient) {
+    ingredient.userId = store.state.user.userId;
+    console.log("Reached add ingredient in service", ingredient)
+    return axios.post(path, ingredient)
   },
 
-  addRecipe(pantry) {
-    pantry.userId = store.state.user.userId;
-    console.log("Reached add ingredient in service", pantry)
-    return axios.post(path + "/addrecipe" + pantry)
+  addRecipe(recipe) {
+    recipe.userId = store.state.user.userId;
+    console.log("Reached add ingredient in service", recipe)
+    return axios.post(path + "/addrecipe", recipe)
   },
 
   allIngredients() {
@@ -22,8 +22,5 @@ export default {
     console.log("Reached all ingredients in service")
     return axios.get(path + "/" + userId)
   },
-
-
-
 
 }
