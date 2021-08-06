@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Your Kitchen</h1>
-    <h2>See and add your ingredients here, and create recipes too!</h2>
+    <h2>Add your ingredients, see them, and create recipes too!</h2>
 
     <add-ingredient />
     <add-recipe />
@@ -12,7 +12,7 @@
 <script>
 import AddIngredient from "@/components/AddIngredient.vue";
 import ViewIngredients from "@/components/ViewIngredients.vue";
-import AddRecipe from '@/components/AddRecipe.vue';
+import AddRecipe from "@/components/AddRecipe.vue";
 
 export default {
   components: {
@@ -24,4 +24,4 @@ export default {
 </script>
 
 <style>
-</style>
+</style>s
