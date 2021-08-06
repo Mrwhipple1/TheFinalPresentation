@@ -11,10 +11,10 @@ export default {
     return axios.post(path, ingredient)
   },
 
-  addRecipe(recipe) {
-    recipe.userId = store.state.user.userId;
-    console.log("Reached add ingredient in service", recipe)
-    return axios.post(path + "/addrecipe", recipe)
+  addRecipe(recipes) {
+    recipes.userId = store.state.user.userId;
+    console.log("Reached add ingredient in service", recipes)
+    return axios.post(path + "/addrecipe", recipes)
   },
 
   allIngredients() {
@@ -23,10 +23,10 @@ export default {
     return axios.get(path + "/" + userId)
   },
 
-  allRecipes() {
+  getRecipes() {
     const userId = store.state.user.userId;
     console.log("Reached all Recipes in service")
-    return axios.get(path + "/" + userId)
+    return axios.get(path + "/getrecipe/" + userId)
   }
 
 }

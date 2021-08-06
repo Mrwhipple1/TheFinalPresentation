@@ -26,16 +26,16 @@
           class="form-control"
           v-model="newItem.RecipeDescription"
         />
-        </div>
+      </div>
 
-        <button class="btn btn-submit">Submit</button>
-        <button
-          type="cancel"
-          v-on:click.prevent="resetForm"
-          class="btn btn-cancel"
-        >
-          Cancel
-        </button>
+      <button class="btn btn-submit">Submit</button>
+      <button
+        type="cancel"
+        v-on:click.prevent="resetForm"
+        class="btn btn-cancel"
+      >
+        Cancel
+      </button>
     </form>
   </div>
 </template>
@@ -75,3 +75,7 @@ export default {
   },
 };
 </script>
+
+<style>
+
+</style>
