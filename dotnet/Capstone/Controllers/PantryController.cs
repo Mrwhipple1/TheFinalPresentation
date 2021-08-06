@@ -49,7 +49,7 @@ namespace Capstone.Controllers
             //return NotFound(ingredients);
         }
 
-        [HttpPost("addrecipe/{userId}")]
+        [HttpPost("addrecipe/{pantry}")]
         public ActionResult<bool> AddNewRecipe(Recipe recipe)
         {
 
