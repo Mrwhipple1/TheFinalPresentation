@@ -12,7 +12,7 @@ namespace Capstone.Models
         public string RecipeDescription { get; set; }
         public int UserId { get; set; }
 
-
+        public List<Ingredient> Ingredients { get; set; }
 
     }
 }

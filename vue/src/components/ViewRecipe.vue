@@ -44,6 +44,7 @@ export default {
         this.ingredientBody = "";
 
     console.log("Reached ViewReipe in component");
+    let ingredient
     recipeService.getRecipes().then((Response) => {
         this.$store.commit("LIST_RECIPES", response.data);
     });
