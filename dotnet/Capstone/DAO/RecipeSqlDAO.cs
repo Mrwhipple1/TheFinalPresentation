@@ -19,7 +19,7 @@ namespace Capstone.DAO
         private string sqlGetRecipesByName = "SELECT recipe_name, recipe_description " +
             " FROM recipe WHERE recipe_name = @recipe_name;";
 
-        private string sqlGetRecipes = "SELECT recipe_name, recipe_description FROM recipe;";
+        private string sqlGetRecipes = "SELECT recipe_name, recipe_description FROM recipe WHERE user_id = @user_id;";
 
         public RecipeSqlDAO(string dbConnectionString)
         {
@@ -57,7 +57,7 @@ namespace Capstone.DAO
             return result;
         }
 
-        public List<Recipe> GetRecipes()
+        public List<Recipe> GetRecipes(int userId)
         {
 
             List<Recipe> recipes = new List<Recipe>();
@@ -70,6 +70,8 @@ namespace Capstone.DAO
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(sqlGetRecipes, conn);
+
+                    cmd.Parameters.AddWithValue("@user_id", userId);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

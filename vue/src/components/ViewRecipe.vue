@@ -12,7 +12,7 @@
     <tbody>
       <tr v-for="recipe in recipes" v-bind:key="recipe.id">
           <td>{{ recipe.recipeName }}</td>
-          <td>{{ recipe.recipe }}</td>
+          <td>{{ recipe.recipeDescription }}</td>
       </tr>
     </tbody>
     <!-- <p id="ingredientBody">
@@ -44,7 +44,7 @@ export default {
         this.ingredientBody = "";
 
     console.log("Reached ViewRecipe in component");
-    recipeService.getRecipes().then((Response) => {
+    recipeService.getRecipes().then((response) => {
         this.$store.commit("LIST_RECIPES", response.data);
     });
 

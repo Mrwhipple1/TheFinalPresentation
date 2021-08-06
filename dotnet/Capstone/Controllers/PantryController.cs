@@ -64,5 +64,13 @@ namespace Capstone.Controllers
                 return NotFound(result);
             }
         }
+
+        [HttpGet("getrecipe/{userId}")]
+        public ActionResult<List<Recipe>> GetRecipes(int userId)
+        {
+            List<Recipe> recipes = recipeDAO.GetRecipes(userId);
+
+            return Ok(recipes);
+        }
     }
 }
