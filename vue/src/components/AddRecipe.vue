@@ -4,9 +4,9 @@
       v-on:click="isFormShown = true"
       v-if="!isFormShown"
       class="btn btn-success"
-      >Add a Recipe</a
+      ><button>Add a Recipe</button></a
     >
-    <form>
+    <form v-on:submit.prevent="addNewRecipe" v-if="isFormShown">
       <div class="form-group">
         <label for="RecipeName"> Name of Recipe</label>
         <input
@@ -26,6 +26,7 @@
           class="form-control"
           v-model="newItem.RecipeDescription"
         />
+        </div>
 
         <button class="btn btn-submit">Submit</button>
         <button
@@ -35,7 +36,6 @@
         >
           Cancel
         </button>
-      </div>
     </form>
   </div>
 </template>

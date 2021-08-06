@@ -121,6 +121,21 @@ export default {
 </script>
 
 <style scoped>
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid rgb(24, 24, 24);
+  -webkit-text-fill-color: rgb(201, 201, 201);
+  -webkit-box-shadow: 0 0 0px 1000px rgb(59, 59, 59) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .overlay {
   position: fixed;
   top: 0px;
@@ -147,7 +162,7 @@ export default {
   width: 800px;
   height: 600px;
   z-index: 2;
-  background-color: white;
+  background-color: rgb(34, 34, 34);
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -209,6 +224,7 @@ export default {
   text-align: left;
   font-family: "Roboto", sans-serif;
   caret-color: transparent;
+  color: rgb(250, 249, 249);
 }
 
 #username {
@@ -233,8 +249,8 @@ export default {
   width: 120px;
   height: 15px;
   text-decoration: none;
-  background-color: #eeeeee;
-  color: #333333;
+  background-color: #2c2c2c;
+  color: #dadada;
   padding: 2px 6px 2px 6px;
   border-radius: 2em;
   caret-color: transparent;
@@ -249,8 +265,8 @@ export default {
   width: 120px;
   height: 15px;
   text-decoration: none;
-  background-color: #bdbdbd;
-  color: #333333;
+  background-color: #5a5a5a;
+  color: #e6e6e6;
   padding: 2px 6px 2px 6px;
   border-radius: 2em;
   caret-color: transparent;
@@ -261,10 +277,11 @@ export default {
 form input {
   margin: 2px;
   height: 50px;
+  color: #333333;
 }
 
 .form-control {
-  background-color: #eee;
+  background-color: rgb(41, 41, 41);
   border: none;
   height: 40px;
 }
@@ -274,15 +291,15 @@ form button {
   max-width: 150px;
   height: 30px;
   margin: 0px 20px 0px 0px;
-  border: #ffffff;
+  border: #242424;
   border-radius: 2em;
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   font-size: 17px;
-  color: #ffffff;
-  background-color: #2e2e2e;
+  color: #b9b9b9;
+  background-color: #303030;
   text-align: center;
   transition: all 0.2s;
   caret-color: transparent;
@@ -313,11 +330,19 @@ form button:hover {
   margin-top: 20px;
 }
 
-.alert {
+.alert-danger {
   font-size: 13px;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
   color: rgb(255, 0, 0);
+  margin: 0px 0px 10px 0px;
+}
+
+.alert-success {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: rgb(209, 209, 209);
   margin: 0px 0px 10px 0px;
 }
 
@@ -336,7 +361,7 @@ form button:hover {
     width: 400px;
     height: 400px;
     z-index: 2;
-    background-color: white;
+    background-color: rgb(34, 34, 34);
     border-radius: 20px 20px 0px 0px;
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
     grid-template-rows: 350px 500px;

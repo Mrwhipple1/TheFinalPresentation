@@ -21,7 +21,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
 
-    ingredients: []
+    ingredients: [],
+    recipes: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -47,14 +48,14 @@ export default new Vuex.Store({
     LIST_INGREDIENTS(state, ingredients) {
       console.log("Reached mutator", ingredients)
       state.ingredients = ingredients;
-
-
     },
-
-    ADD_RECIPE(state, recipeName) {
-      console.log("Reached mutator", recipeName)
-      state.recipeName = recipeName;
-
+    ADD_RECIPE(state, pantry) {
+      console.log("Reached Mutator", pantry)
+      state.ingredients.push(pantry);
+    },
+    LIST_RECIPE(state, recipe) {
+      console.log("reached mutator", recipe)
+      state.recipe = recipe;
     }
   }
 });

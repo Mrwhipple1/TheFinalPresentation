@@ -1,9 +1,10 @@
 <template>
   <div>
     <h1>Your Kitchen</h1>
-    <h2>See and add your ingredients here, and create recipes too!</h2>
+    <h2>Add your ingredients, see them, and create recipes too!</h2>
 
     <add-ingredient />
+    <add-recipe />
     <view-ingredients />
     <add-recipe />
   </div>
@@ -23,4 +24,4 @@ export default {
 </script>
 
 <style>
-</style>
+</style>s

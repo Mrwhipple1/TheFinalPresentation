@@ -11,5 +11,10 @@ namespace Capstone.DAO.Interfaces
         bool AddIngredient(Ingredient ingredient);
 
         List<Ingredient> GetAllIngredients(int userId);
+
+
+
+
+
     }
 }

@@ -4,8 +4,9 @@
       v-on:click="isFormShown = true"
       v-if="!isFormShown"
       class="btn btn-success"
-      >Add an Ingredient</a
+      ><button>Insert an Ingredient</button></a
     >
+   
 
     <form v-on:submit.prevent="addNewIngredient" v-if="isFormShown">
       <div class="form-group">
