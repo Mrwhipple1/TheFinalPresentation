@@ -43,7 +43,7 @@ export default {
         this.ingredientHeading = "";
         this.ingredientBody = "";
 
-    console.log("Reached ViewReipe in component");
+    console.log("Reached ViewRecipe in component");
     recipeService.getRecipes().then((Response) => {
         this.$store.commit("LIST_RECIPES", response.data);
     });

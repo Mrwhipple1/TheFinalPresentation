@@ -23,4 +23,6 @@ export default {
     return axios.get(path + "/" + userId)
   },
 
+  
+
 }

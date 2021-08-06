@@ -53,7 +53,7 @@ export default new Vuex.Store({
       console.log("Reached Mutator", pantry)
       state.ingredients.push(pantry);
     },
-    LIST_RECIPE(state, recipe) {
+    LIST_RECIPES(state, recipe) {
       console.log("reached mutator", recipe)
       state.recipe = recipe;
     }
