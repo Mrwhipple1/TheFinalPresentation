@@ -6,8 +6,6 @@
       class="btn btn-success"
       ><button>Insert an Ingredient</button></a
     >
-   
-
     <form v-on:submit.prevent="addNewIngredient" v-if="isFormShown">
       <div class="form-group">
         <label for="IngredientName">Name of Ingredient: </label>

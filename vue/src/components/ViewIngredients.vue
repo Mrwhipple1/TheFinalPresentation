@@ -4,8 +4,8 @@
     <table class="table table-bordered table-hover">
       <tbody>
           <th>List Of Ingredients</th>
-          <tr v-for="(ingredient) in ingredients" v-bind:key="ingredient.id">
-          <td>{{ ingredients.name }}</td>
+          <tr v-for="ingredient in ingredients" v-bind:key="ingredient.id">
+          <td>{{ ingredient.ingredientName }}</td>
         </tr>
       </tbody>
     </table>
