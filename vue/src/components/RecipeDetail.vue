@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link class="btn btn-success" v-bind:to="{ name: 'Pantry' }">
+    <router-link class="btn btn-success" v-bind:to="{ name: 'pantry' }">
       List</router-link
     >
 
