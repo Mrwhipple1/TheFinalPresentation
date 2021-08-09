@@ -45,6 +45,7 @@ CREATE TABLE recipe (
 recipe_id int identity(1,1) NOT NULL,
 recipe_name varchar(50) NOT NULL,
 recipe_description varchar (2200),
+recipe_instructions varchar (2200),
 user_id int NOT NULL,
 CONSTRAINT PK_recipe_recipe_id PRIMARY KEY (recipe_id)
 );
