@@ -41,9 +41,9 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    ADD_INGREDIENT(state, pantry) {
-      console.log("Reached add Ingredient Mutator", pantry)
-      state.ingredients.push(pantry);
+    ADD_INGREDIENT(state, ingredient) {
+      console.log("Reached add Ingredient Mutator", ingredient)
+      state.ingredients.push(ingredient);
     },
     LIST_INGREDIENTS(state, ingredients) {
       console.log("Reached list ingredient mutator", ingredients)
@@ -51,7 +51,7 @@ export default new Vuex.Store({
     },
     ADD_RECIPE(state, pantry) {
       console.log("Reached  add recipe Mutator", pantry)
-      state.ingredients.push(pantry);
+      state.recipes.push(pantry);
     },
     LIST_RECIPES(state, recipes) {
       console.log("reached list recipe mutator", recipes)

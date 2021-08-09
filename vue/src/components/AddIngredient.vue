@@ -12,8 +12,8 @@
         <input
           required
           type="text"
-          id="ingredienName"
-          name="ingredienName"
+          id="ingredientName"
+          name="ingredientName"
           class="form-control"
           v-model="newItem.ingredientName"
         />
@@ -54,7 +54,7 @@ export default {
 
       recipeService.addIngredient(this.newItem).then((response) => {
         console.log("Success", response);
-        this.$router.push({ ingredientName: "Pantry" });
+        //this.$router.push({ ingredientName: "Pantry" });
       });
       this.resetForm();
     },
