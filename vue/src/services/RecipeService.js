@@ -27,6 +27,11 @@ export default {
     const userId = store.state.user.userId;
     console.log("Reached all Recipes in service")
     return axios.get(path + "/getrecipe/" + userId)
+  },
+
+  getRecipe(recipeId) {
+    return axios.get(path + '/' + recipeId)
+
   }
 
 }

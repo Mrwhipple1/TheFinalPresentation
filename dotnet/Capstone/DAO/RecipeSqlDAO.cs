@@ -159,7 +159,6 @@ namespace Capstone.DAO
             return recipes;
         }
 
-<<<<<<< HEAD
         private Recipe ReaderToRecipe(SqlDataReader reader)
         {
             Recipe recipe = new Recipe();
@@ -174,7 +173,6 @@ namespace Capstone.DAO
         //public List<Ingredient> GetIngredientsByRecipeId(int recipeId)
         //{
         //    List<Ingredient> ingredients = new List<Ingredient>();
-=======
         //public List<Ingredient> GetIngredientsByRecipeId(int recipeId)
         //{
         //    List<Ingredient> ingredients = new List<Ingredient>();
@@ -194,7 +192,6 @@ namespace Capstone.DAO
         //    {
         //        ingredients = new List<Ingredient>();
         //    }
->>>>>>> f1ed8f282ba760f9ef24e75a17bf1ac17ff7690c
 
         //    try
         //    {
@@ -215,10 +212,9 @@ namespace Capstone.DAO
 
         //}
 
-<<<<<<< HEAD
-=======
+
         //}
->>>>>>> f1ed8f282ba760f9ef24e75a17bf1ac17ff7690c
+
 
 
 
