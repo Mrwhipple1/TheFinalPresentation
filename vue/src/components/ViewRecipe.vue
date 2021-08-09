@@ -16,7 +16,9 @@
         <td>{{ recipe.recipeDescription }}</td>
         <td>{{ recipe.recipeInstructions }}</td>
         <td>
-          <router-link :to="{ name: 'recipe' }" class="recipe"
+          <router-link
+            v-bind:to="{ name: 'recipe', params: { id: recipe.id } }"
+            class="recipe"
             >Recipe Details</router-link
           >
         </td>
