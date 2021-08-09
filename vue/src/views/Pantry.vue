@@ -6,7 +6,7 @@
     <add-ingredient />
     <add-recipe />
     <view-ingredients />
-    <add-recipe />
+    <view-recipe />
   </div>
 </template>
 
@@ -14,11 +14,14 @@
 import AddIngredient from "@/components/AddIngredient.vue";
 import ViewIngredients from "@/components/ViewIngredients.vue";
 import AddRecipe from "@/components/AddRecipe.vue";
+import ViewRecipe from '@/components/ViewRecipe.vue';
+
 export default {
   components: {
     AddIngredient,
     ViewIngredients,
     AddRecipe,
+    ViewRecipe,
   },
 };
 </script>
