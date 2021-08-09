@@ -38,7 +38,7 @@ namespace Capstone.DAO
 
                     SqlCommand cmd = new SqlCommand(sqlAddRecipe, conn);
 
-                    cmd.Parameters.AddWithValue("@recipe_name", recipe.RecipeName.ToLower());
+                    cmd.Parameters.AddWithValue("@recipe_name", recipe.RecipeName.ToLower().Trim());
                     cmd.Parameters.AddWithValue("@recipe_description", recipe.RecipeDescription);
                     cmd.Parameters.AddWithValue("@user_id", recipe.UserId);
 
@@ -107,7 +107,7 @@ namespace Capstone.DAO
 
                     SqlCommand cmd = new SqlCommand(sqlGetRecipesByName, conn);
 
-                    cmd.Parameters.AddWithValue("@recipe_name", name.ToLower());
+                    cmd.Parameters.AddWithValue("@recipe_name", name.ToLower().Trim());
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -128,5 +128,34 @@ namespace Capstone.DAO
             }
             return recipes;
         }
+
+        //public List<Ingredient> GetIngredientsByRecipeId(int recipeId)
+        //{
+        //    List<Ingredient> ingredients = new List<Ingredient>();
+
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+
+        //            SqlCommand cmd = new SqlCommand(sqlGetIngredientByRecipeId, conn);
+
+        //            cmd.Parameters.AddWithValue("@recipe_id", recipeId);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ingredients = new List<Ingredient>();
+        //    }
+
+
+        //}
+
+
+
+
+
+
     }
 }

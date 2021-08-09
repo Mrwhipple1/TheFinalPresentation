@@ -65,7 +65,7 @@ export default {
 
       recipeService.addRecipe(this.newItem).then((response) => {
         console.log("Success", response);
-        this.$router.push({ recipeName: "Pantry" });
+        //this.$router.push({ recipeName: "Pantry" });
       });
       this.resetForm();
     },
@@ -78,5 +78,4 @@ export default {
 </script>
 
 <style>
-
 </style>

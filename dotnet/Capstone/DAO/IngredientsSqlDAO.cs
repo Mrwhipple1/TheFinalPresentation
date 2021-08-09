@@ -36,7 +36,7 @@ namespace Capstone.DAO
                     SqlCommand cmd = new SqlCommand(sqlAddIngredient, conn);
 
 
-                    cmd.Parameters.AddWithValue("@ingredient_name", ingredient.IngredientName);
+                    cmd.Parameters.AddWithValue("@ingredient_name", ingredient.IngredientName.ToLower().Trim());
                     cmd.Parameters.AddWithValue("@user_id", ingredient.UserId);
 
 
