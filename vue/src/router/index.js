@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import RecipeService from '../services/RecipeService'
 import store from '../store/index'
 
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Pantry from '../views/Pantry.vue'
+import Recipe from '../views/Recipe.vue'
 import Register from '../views/Register.vue'
 
 Vue.use(Router)
@@ -52,15 +54,23 @@ const router = new Router({
       name: "pantry",
       component: Pantry,
       meta: {
-       requiresAuth: false
+        requiresAuth: false
       }
     },
     {
-     path: "/register",
-     name: "register",
-     component: Register,
-     meta: {
-       requiresAuth: false
+    path: "/pantry/:id",
+    name: 'RecipeDetail',
+    component: Recipe,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: Register,
+    meta: {
+      requiresAuth: false
     }
   },
   ]

@@ -21,6 +21,8 @@ namespace Capstone.DAO
 
         private string sqlGetRecipes = "SELECT recipe_name, recipe_description FROM recipe WHERE user_id = @user_id;";
 
+        private string sqlGetRecipe = "SELECT * FROM recipe WHERE recipe_id = @recipe_id";
+
         public RecipeSqlDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
@@ -93,6 +95,34 @@ namespace Capstone.DAO
             return recipes;
         }
 
+        public Recipe GetRecipe(int recipeId)
+        {
+            Recipe recipe = new Recipe();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sqlGetRecipe, conn);
+
+                    cmd.Parameters.AddWithValue("@recipe_id", recipeId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        recipe = ReaderToRecipe(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                recipe = new Recipe();
+            }
+            return recipe;
+        }
+
         public List<Recipe> GetRecipeByName(string name)
         {
             List<Recipe> recipes = new List<Recipe>();
@@ -129,28 +159,40 @@ namespace Capstone.DAO
             return recipes;
         }
 
-        public List<Ingredient> GetIngredientsByRecipeId(int recipeId)
+        private Recipe ReaderToRecipe(SqlDataReader reader)
         {
-            List<Ingredient> ingredients = new List<Ingredient>();
+            Recipe recipe = new Recipe();
 
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
+            recipe.Id = Convert.ToInt32(reader["id"]);
+            recipe.RecipeName = Convert.ToString(reader["recipe_name"]);
+            recipe.RecipeDescription = Convert.ToString(reader["recipe_description"]);
 
-                    SqlCommand cmd = new SqlCommand(sqlGetIngredientByRecipeId, conn);
-
-                    cmd.Parameters.AddWithValue("@recipe_id", recipeId);
-                }
-            }
-            catch (Exception ex)
-            {
-                ingredients = new List<Ingredient>();
-            }
-
-
+            return recipe;
         }
+
+        //public List<Ingredient> GetIngredientsByRecipeId(int recipeId)
+        //{
+        //    List<Ingredient> ingredients = new List<Ingredient>();
+
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+
+        //            SqlCommand cmd = new SqlCommand(sqlGetIngredientByRecipeId, conn);
+
+        //            cmd.Parameters.AddWithValue("@recipe_id", recipeId);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ingredients = new List<Ingredient>();
+        //    }
+
+
+        //}
+
 
 
 
