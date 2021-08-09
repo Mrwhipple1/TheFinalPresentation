@@ -30,7 +30,7 @@ export default {
   },
 
   getRecipe(recipeId) {
-    return axios.get(path + '/recipe/' + recipeId)
+    return axios.get(path + '/getrecipe' + recipeId)
 
   }
 
