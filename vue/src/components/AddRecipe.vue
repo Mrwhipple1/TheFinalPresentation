@@ -26,6 +26,16 @@
           class="form-control"
           v-model="newItem.RecipeDescription"
         />
+
+        <label for="RecipeInstructions"> Instructions for Recipe</label>
+        <input
+          type="text"
+          required
+          id="RecipeInstructions"
+          name="RecipeInstructions"
+          class="form-control"
+          v-model="newItem.RecipeInstructions"
+        />
       </div>
 
       <button class="btn btn-submit">Submit</button>
@@ -50,7 +60,6 @@ export default {
     return {
       newItem: {
         RecipeName: "",
-        RecipeDescription: "",
       },
 
       isFormShown: false,

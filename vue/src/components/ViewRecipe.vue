@@ -7,12 +7,14 @@
       <tr>
         <th>Recipe Name</th>
         <th>Recipe Description</th>
+        <th>Recipe Instructions</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="recipe in recipes" v-bind:key="recipe.recipeName">
         <td>{{ recipe.recipeName }}</td>
         <td>{{ recipe.recipeDescription }}</td>
+        <td>{{ recipe.recipeInstructions }}</td>
       </tr>
     </tbody>
     <!-- <p id="ingredientBody">
