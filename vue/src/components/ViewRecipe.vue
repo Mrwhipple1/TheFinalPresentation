@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="recipe in recipes" v-bind:key="recipe.id">
+      <tr v-for="recipe in recipes" v-bind:key="recipe.recipeName">
         <td>{{ recipe.recipeName }}</td>
         <td>{{ recipe.recipeDescription }}</td>
       </tr>

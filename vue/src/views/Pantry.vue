@@ -14,7 +14,7 @@
 import AddIngredient from "@/components/AddIngredient.vue";
 import ViewIngredients from "@/components/ViewIngredients.vue";
 import AddRecipe from "@/components/AddRecipe.vue";
-import ViewRecipe from '@/components/ViewRecipe.vue';
+import ViewRecipe from "@/components/ViewRecipe.vue";
 
 export default {
   components: {
@@ -27,4 +27,4 @@ export default {
 </script>
 
 <style>
-</style>s
+</style>

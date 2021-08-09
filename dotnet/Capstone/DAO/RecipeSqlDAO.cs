@@ -40,7 +40,7 @@ namespace Capstone.DAO
 
                     SqlCommand cmd = new SqlCommand(sqlAddRecipe, conn);
 
-                    cmd.Parameters.AddWithValue("@recipe_name", recipe.RecipeName.ToLower());
+                    cmd.Parameters.AddWithValue("@recipe_name", recipe.RecipeName.ToLower().Trim());
                     cmd.Parameters.AddWithValue("@recipe_description", recipe.RecipeDescription);
                     cmd.Parameters.AddWithValue("@user_id", recipe.UserId);
 
@@ -137,7 +137,7 @@ namespace Capstone.DAO
 
                     SqlCommand cmd = new SqlCommand(sqlGetRecipesByName, conn);
 
-                    cmd.Parameters.AddWithValue("@recipe_name", name.ToLower());
+                    cmd.Parameters.AddWithValue("@recipe_name", name.ToLower().Trim());
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -159,6 +159,7 @@ namespace Capstone.DAO
             return recipes;
         }
 
+<<<<<<< HEAD
         private Recipe ReaderToRecipe(SqlDataReader reader)
         {
             Recipe recipe = new Recipe();
@@ -173,6 +174,27 @@ namespace Capstone.DAO
         //public List<Ingredient> GetIngredientsByRecipeId(int recipeId)
         //{
         //    List<Ingredient> ingredients = new List<Ingredient>();
+=======
+        //public List<Ingredient> GetIngredientsByRecipeId(int recipeId)
+        //{
+        //    List<Ingredient> ingredients = new List<Ingredient>();
+
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+
+        //            SqlCommand cmd = new SqlCommand(sqlGetIngredientByRecipeId, conn);
+
+        //            cmd.Parameters.AddWithValue("@recipe_id", recipeId);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ingredients = new List<Ingredient>();
+        //    }
+>>>>>>> f1ed8f282ba760f9ef24e75a17bf1ac17ff7690c
 
         //    try
         //    {
@@ -193,6 +215,10 @@ namespace Capstone.DAO
 
         //}
 
+<<<<<<< HEAD
+=======
+        //}
+>>>>>>> f1ed8f282ba760f9ef24e75a17bf1ac17ff7690c
 
 
 
