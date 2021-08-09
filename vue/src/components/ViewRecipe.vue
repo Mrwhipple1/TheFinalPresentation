@@ -15,6 +15,11 @@
         <td>{{ recipe.recipeName }}</td>
         <td>{{ recipe.recipeDescription }}</td>
         <td>{{ recipe.recipeInstructions }}</td>
+        <td>
+          <router-link :to="{ name: 'recipe' }" class="recipe"
+            >Recipe Details</router-link
+          >
+        </td>
       </tr>
     </tbody>
     <!-- <p id="ingredientBody">

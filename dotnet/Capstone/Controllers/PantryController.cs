@@ -72,5 +72,11 @@ namespace Capstone.Controllers
 
             return Ok(recipes);
         }
+
+        [HttpGet("recipe/{recipeId}")]
+        public ActionResult<Recipe> GetRecipe(int recipeId)
+        {
+            return Ok(recipeDAO.GetRecipe(recipeId));
+        }
     }
 }

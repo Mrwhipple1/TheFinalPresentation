@@ -9,6 +9,7 @@ namespace Capstone.DAO.Interfaces
     public interface IRecipeDAO
     {
         bool AddRecipe(Recipe recipe);
+        Recipe GetRecipe(int recipeId);
         List<Recipe> GetRecipes(int userId);
         List<Recipe> GetRecipeByName(string name);
     }

@@ -15,6 +15,10 @@
           <th>Recipe Description</th>
           <td>{{ recipe.recipeDescription }}</td>
         </tr>
+        <tr>
+          <th>Recipe Instructions</th>
+          <td>{{ recipe.recipeInstructions }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -22,21 +26,21 @@
 
 <script>
 export default {
-    name: "RecipeDetail",
+  name: "RecipeDetail",
 
-    data: function () {
-        return {
-            recipe: {},
-        };
-    },
-    props: ["id"],
+  data: function () {
+    return {
+      recipe: {},
+    };
+  },
+  props: ["id"],
 
-    created() {
-        let recipes = this.$store.state.recipes;
-        this.recipe = recipes.find((item) => {
-            return item.id == this.id;
-        });
-    },
+  created() {
+    let recipes = this.$store.state.recipes;
+    this.recipe = recipes.find((item) => {
+      return item.id == this.id;
+    });
+  },
 };
 </script>
 
