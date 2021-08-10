@@ -36,7 +36,7 @@ export default {
 
   deleteRecipe(recipeId){
 
-    return axios.delete(path + '/recipedelete/' + recipeId)
+    return axios.delete(path + '/deleterecipe' + recipeId)
   }
 
 }
