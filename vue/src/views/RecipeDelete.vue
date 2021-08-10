@@ -1,16 +1,15 @@
 <template>
-<div>
-    <p> id="message">{{message}}</p>
-    <h3>Delete Recipe {{deleteRecipe}}</h3>
+  <div>
+    <p>id="message">{{ message }}</p>
+    <h3>Delete Recipe {{ recipeNumber }}</h3>
     <h4>You are about to delete tjhis delicious recipe! Are you sure?</h4>
 
     <a href="#" class="btn btn-danger" v-on:click="deleteRecipe">Delete</a>
 
-    <router-link class="btn btn-success" v-bind:to="{ name: 'RecipeDetail'}" >
+    <router-link class="btn btn-success" v-bind:to="{ name: 'RecipeDetail' }">
       Cancel</router-link
     >
-    </div>
-  
+  </div>
 </template>
 
 <script>
@@ -18,12 +17,10 @@ import recipeService from "@/services/RecipeService.js";
 export default {
   name: "RecipeDelete",
 
-  
-  
   data() {
     return {
       recipeNumber: 0,
-      message: ""
+      message: "",
     };
   },
 
@@ -52,8 +49,6 @@ export default {
         });
     },
   },
-
-
 };
 </script>
 

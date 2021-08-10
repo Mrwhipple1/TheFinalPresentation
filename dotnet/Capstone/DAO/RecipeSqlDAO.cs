@@ -23,7 +23,7 @@ namespace Capstone.DAO
 
         private string sqlGetRecipe = "SELECT * FROM recipe WHERE recipe_id = @recipe_id";
 
-        private string sqlDeleteRecipe = "DELETE * FROM recipe WHERE recipe_id = @recipe_id";
+        private string sqlDeleteRecipe = "DELETE * FROM recipe WHERE recipe_id = @ recipe_id";
 
         public RecipeSqlDAO(string dbConnectionString)
         {
@@ -153,6 +153,7 @@ namespace Capstone.DAO
                         recipe.RecipeDescription = Convert.ToString(reader["recipe_description"]);
                         recipe.RecipeInstructions = Convert.ToString(reader["recipe_instructions"]);
 
+
                         recipes.Add(recipe);
                     }
                 }
@@ -164,6 +165,33 @@ namespace Capstone.DAO
             return recipes;
         }
 
+        public bool DeleteRecipe(int recipeId)
+        {
+            bool result = false;
+
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sqlDeleteRecipe, conn);
+
+                    cmd.Parameters.AddWithValue("@recipe_id", recipeId);
+
+                    int count = cmd.ExecuteNonQuery();
+
+                    if (count > 0)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            return result;
+        }
         private Recipe ReaderToRecipe(SqlDataReader reader)
         {
             Recipe recipe = new Recipe();
@@ -199,35 +227,6 @@ namespace Capstone.DAO
         ////}
 
         //}
-
-        public bool DeleteRecipe(int recipeId)
-        {
-            bool result = false;
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sqlDeleteRecipe, conn);
-
-                    cmd.Parameters.AddWithValue("@recipe_id", recipeId);
-
-                    int count = cmd.ExecuteNonQuery();
-
-                    if (count > 0)
-                    {
-                        result = true;
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                result = false;
-            }
-            return result;
-        }
 
 
 
