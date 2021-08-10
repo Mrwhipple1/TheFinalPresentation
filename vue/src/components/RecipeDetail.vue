@@ -3,6 +3,9 @@
     <router-link class="btn btn-success" v-bind:to="{ name: 'pantry' }">
       List</router-link
     >
+    <router-link class="btn btn-danger" v-bind:to="{ name: 'RecipeDelete', params: {id: recipe.id} }">
+      Delete Recipe</router-link
+    >
 
     <table class="table table-bordered table-hover">
       <tbody>

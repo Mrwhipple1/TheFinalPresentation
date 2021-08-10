@@ -8,6 +8,7 @@ import Logout from '../views/Logout.vue'
 import Pantry from '../views/Pantry.vue'
 import Recipe from '../views/Recipe.vue'
 import Register from '../views/Register.vue'
+import RecipeDelete from '../views/RecipeDelete.vue'
 
 Vue.use(Router)
 
@@ -56,22 +57,35 @@ const router = new Router({
         requiresAuth: false
       }
     },
+
     {
-    path: "/recipe/:id",
-    name: 'recipe',
-    component: Recipe,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: "/register",
-    name: "register",
-    component: Register,
-    meta: {
-      requiresAuth: false
-    }
-  },
+      path: "/recipe/:id",
+      name: 'recipe',
+      component: Recipe,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+    {
+      path: "/recipedelete/:id",
+      name: 'recipedelete',
+      component: RecipeDelete,
+      meta: {
+        requiresAuth: true
+      }
+
+
+    },
+
+    {
+      path: "/register",
+      name: "register",
+      component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 });
 

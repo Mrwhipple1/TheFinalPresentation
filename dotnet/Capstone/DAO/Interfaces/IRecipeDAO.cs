@@ -12,5 +12,6 @@ namespace Capstone.DAO.Interfaces
         Recipe GetRecipe(int recipeId);
         List<Recipe> GetRecipes(int userId);
         List<Recipe> GetRecipeByName(string name);
+        bool DeleteRecipe(int recipeId);
     }
 }

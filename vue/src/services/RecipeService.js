@@ -32,6 +32,11 @@ export default {
   getRecipe(recipeId) {
     return axios.get(path + '/getrecipe' + recipeId)
 
+  },
+
+  deleteRecipe(recipeId){
+
+    return axios.delete(path + '/recipedelete/' + recipeId)
   }
 
 }
