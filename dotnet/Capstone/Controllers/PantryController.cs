@@ -79,7 +79,7 @@ namespace Capstone.Controllers
             return Ok(recipeDAO.GetRecipe(recipeId));
         }
 
-        [HttpDelete("recipedelete/{recipeId}")]
+        [HttpDelete("recipe/{recipeId}")]
         public ActionResult<Recipe> DeleteRecipe(int recipeId)
         {
             return Ok(recipeDAO.DeleteRecipe(recipeId));

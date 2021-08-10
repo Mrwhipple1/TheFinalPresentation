@@ -68,8 +68,8 @@ const router = new Router({
     },
 
     {
-      path: "/recipedelete/:recipeId",
-      name: 'recipedelete',
+      path: "/recipe/:recipeId",
+      name: 'RecipeDelete',
       component: RecipeDelete,
       meta: {
         requiresAuth: true

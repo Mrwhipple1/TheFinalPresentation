@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p>id="message">{{ message }}</p>
+    <p id="message">{{ message }}</p>
     <h3>Delete Recipe {{ recipeNumber }}</h3>
-    <h4>You are about to delete tjhis delicious recipe! Are you sure?</h4>
+    <h4>You are about to delete this delicious recipe! Are you sure?</h4>
 
     <a href="#" class="btn btn-danger" v-on:click="deleteRecipe">Delete</a>
 
@@ -25,7 +25,7 @@ export default {
   },
 
   created() {
-    this.recipeNumber = this.$route.params.id;
+    this.recipeNumber = this.$route.params.recipeId;
   },
 
   methods: {
