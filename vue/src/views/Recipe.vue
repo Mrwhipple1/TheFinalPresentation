@@ -17,7 +17,7 @@ export default {
  },
 
  created() {
-     this.recipeNumber = this.$route.params.id;
+     this.recipeNumber = this.$route.params.recipeId;
  },
 };
 </script>

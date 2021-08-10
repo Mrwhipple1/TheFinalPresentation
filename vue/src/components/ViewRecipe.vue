@@ -11,13 +11,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="recipe in recipes" v-bind:key="recipe.recipeName">
+      <tr v-for="recipe in recipes" v-bind:key="recipe.recipeId">
         <td>{{ recipe.recipeName }}</td>
         <td>{{ recipe.recipeDescription }}</td>
         <td>{{ recipe.recipeInstructions }}</td>
         <td>
           <router-link
-            v-bind:to="{ name: 'recipe', params: { id: recipe.id } }"
+            v-bind:to="{ name: 'recipe', params: { id: recipe.recipeId } }"
             class="recipe"
             >Recipe Details</router-link
           >

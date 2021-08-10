@@ -23,7 +23,7 @@ namespace Capstone.DAO
 
         private string sqlGetRecipe = "SELECT * FROM recipe WHERE recipe_id = @recipe_id";
 
-        private string sqlDeleteRecipe = "DELETE * FROM recipe WHERE recipe_id = @ recipe_id";
+        private string sqlDeleteRecipe = "DELETE * FROM recipe WHERE recipe_id = @recipe_id";
 
         public RecipeSqlDAO(string dbConnectionString)
         {
@@ -196,7 +196,7 @@ namespace Capstone.DAO
         {
             Recipe recipe = new Recipe();
 
-            recipe.Id = Convert.ToInt32(reader["id"]);
+            recipe.RecipeId = Convert.ToInt32(reader["recipe_id"]);
             recipe.RecipeName = Convert.ToString(reader["recipe_name"]);
             recipe.RecipeDescription = Convert.ToString(reader["recipe_description"]);
             recipe.RecipeInstructions = Convert.ToString(reader["recipe_instructions"]);
