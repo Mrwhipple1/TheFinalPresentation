@@ -5,10 +5,8 @@
       <table cellpadding="0" cellspacing="0" border="0">
         <thead>
           <tr>
-            <th>Recipe Id</th>
             <th>Recipe Name</th>
             <th>Recipe Description</th>
-            <th>Recipe Instructions</th>
           </tr>
         </thead>
       </table>
@@ -17,10 +15,8 @@
       <table cellpadding="0" cellspacing="0" border="0">
         <tbody>
           <tr v-for="recipe in recipes" v-bind:key="recipe.recipeId">
-            <td>{{ recipe.recipeId }}</td>
-            <td>{{ recipe.recipeName }}</td>
+            <td class="first-td">{{ recipe.recipeName }}</td>
             <td>{{ recipe.recipeDescription }}</td>
-            <td>{{ recipe.recipeInstructions }}</td>
             <td>
               <button class="detail-btn">
                 <router-link
@@ -77,7 +73,6 @@ h2 {
   caret-color: transparent;
   color: rgb(250, 249, 249);
   font-size: 35px;
-  text-transform: uppercase;
   font-weight: 300;
   text-align: center;
   margin-bottom: 15px;
@@ -96,11 +91,10 @@ table {
 }
 th {
   padding: 20px 10px;
-  text-align: left;
-  font-weight: 500;
-  font-size: 13px;
-  color: cadetblue;
-  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  caret-color: transparent;
+  color: rgb(250, 249, 249);
+  font-size: 16px;
 }
 td {
   font-family: "Roboto", sans-serif;
@@ -113,6 +107,10 @@ td {
   font-weight: 300;
   color: white;
   border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+.first-td {
+  border-right: solid 1px white;
 }
 
 td::first-letter {
@@ -132,6 +130,24 @@ td::first-letter {
   font-size: 17px;
   color: #242424;
   background-color: #c2c2c2;
+  text-align: center;
+  transition: all 0.2s;
+  caret-color: transparent;
+}
+
+.detail-btn:hover {
+  max-width: 200px;
+  height: 30px;
+  margin: 0px 20px 0px 0px;
+  border: #b8b8b8;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  color: #242424;
+  background-color: #959595;
   text-align: center;
   transition: all 0.2s;
   caret-color: transparent;
