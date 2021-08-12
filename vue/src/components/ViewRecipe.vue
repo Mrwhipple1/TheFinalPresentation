@@ -5,7 +5,7 @@
       <table cellpadding="0" cellspacing="0" border="0">
         <thead>
           <tr>
-            <th>Recipe Name</th>
+            <th class="name">Recipe Name</th>
             <th>Recipe Description</th>
           </tr>
         </thead>
@@ -89,6 +89,12 @@ table {
   margin-top: 0px;
   border: 1px solid black;
 }
+
+.name {
+  padding-right: 30px;
+  padding-left: 20px;
+}
+
 th {
   padding: 20px 10px;
   font-family: "Roboto", sans-serif;
@@ -102,7 +108,7 @@ td {
   color: rgb(250, 249, 249);
   font-size: 16px;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   font-weight: 300;
   color: white;
@@ -111,6 +117,7 @@ td {
 
 .first-td {
   border-right: solid 1px white;
+  padding: 20px 55px 20px 55px;
 }
 
 td::first-letter {
