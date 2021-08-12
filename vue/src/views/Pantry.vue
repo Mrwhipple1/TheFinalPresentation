@@ -27,4 +27,7 @@ export default {
 </script>
 
 <style>
+div{
+  background-color:lightskyblue;
+}
 </style>
