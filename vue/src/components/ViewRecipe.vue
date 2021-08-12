@@ -11,12 +11,12 @@
         <th>Recipe Instructions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table">
       <tr v-for="recipe in recipes" v-bind:key="recipe.recipeId">
-        <td>{{ recipe.recipeId }}</td>
-        <td>{{ recipe.recipeName }}</td>
-        <td>{{ recipe.recipeDescription }}</td>
-        <td>{{ recipe.recipeInstructions }}</td>
+        <td class="idtbl">{{ recipe.recipeId }}</td>
+        <td class="nametbl">{{ recipe.recipeName }}</td>
+        <td class="decstbl">{{ recipe.recipeDescription }}</td>
+        <td class="insttbl">{{ recipe.recipeInstructions }}</td>
         <td>
           <router-link
             v-bind:to="{
