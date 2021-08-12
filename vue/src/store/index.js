@@ -58,9 +58,9 @@ export default new Vuex.Store({
       state.recipes = recipes;
     },
 
-    MODIFY_RECIPE(state, pantry) {
-      console.log("Reached  add recipe Mutator", pantry)
-      state.recipes.push(pantry);
+    MODIFY_RECIPE(state, recipe, recipeId) {
+      console.log("Reached  add recipe Mutator", recipe, recipeId)
+      state.recipes = recipe, recipeId
     },
   }
 });

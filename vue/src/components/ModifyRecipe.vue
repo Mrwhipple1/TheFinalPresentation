@@ -15,7 +15,7 @@
           id="RecipeName"
           name="RecipeName"
           class="form-control"
-          v-model="newItem.RecipeName"
+          v-model="newItem.recipeName"
         />
 
         <label for="RecipeDescription"> Recipe Description</label>
@@ -24,7 +24,7 @@
           id="RecipeDescription"
           name="recipeDescription"
           class="form-control"
-          v-model="newItem.RecipeDescription"
+          v-model="newItem.recipeDescription"
         />
 
         <label for="RecipeInstructions"> Instructions for Recipe</label>
@@ -34,7 +34,7 @@
           id="RecipeInstructions"
           name="RecipeInstructions"
           class="form-control"
-          v-model="newItem.RecipeInstructions"
+          v-model="newItem.recipeInstructions"
         />
       </div>
 
@@ -45,6 +45,7 @@
         class="btn btn-cancel"
       >
         Cancel
+    <recipe-modify v-bind:id="recipeNumber" />
       </button>
     </form>
   </div>
@@ -53,13 +54,16 @@
 
 <script>
 import recipeService from "@/services/RecipeService.js";
+import recipeModify from "@/views/RecipeModify.vue";
 
 export default {
+  components: { recipeModify },
   name: "ModifyRecipe",
   data() {
     return {
       newItem: {
-        RecipeName: "",
+        recipeName: "",
+        recipeId: 0,
       },
 
       isFormShown: false,

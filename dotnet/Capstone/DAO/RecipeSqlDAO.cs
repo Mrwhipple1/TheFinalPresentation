@@ -193,7 +193,7 @@ namespace Capstone.DAO
             return result;
         }
 
-        public bool ModifyRecipe(int recipeId)
+        public bool ModifyRecipe(Recipe recipe)
         {
             bool result = false;
 
@@ -204,7 +204,12 @@ namespace Capstone.DAO
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(sqlModifyRecipe, conn);
 
-                    cmd.Parameters.AddWithValue("@recipe_id", recipeId);
+                    cmd.Parameters.AddWithValue("@recipe_id", recipe.RecipeId);
+                    cmd.Parameters.AddWithValue("@recipe_name", recipe.RecipeName);
+                    cmd.Parameters.AddWithValue("@recipe_description", recipe.RecipeDescription);
+                    cmd.Parameters.AddWithValue("@recipe_instructions", recipe.RecipeInstructions);
+
+                    
 
                     int count = cmd.ExecuteNonQuery();
 

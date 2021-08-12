@@ -86,9 +86,9 @@ namespace Capstone.Controllers
         }
 
         [HttpPut("modifyrecipe/{recipeId}")]
-        public ActionResult<bool> ModifyRecipe(int recipeId)
+        public ActionResult<bool> ModifyRecipe(Recipe recipe, int recipeId)
         {
-            return Ok(recipeDAO.ModifyRecipe(recipeId));
+            return Ok(recipeDAO.ModifyRecipe(recipe));
         }
     }
 }

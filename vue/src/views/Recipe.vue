@@ -1,14 +1,16 @@
 <template>
+<div>
   <recipe-detail v-bind:id="recipeNumber" />
+</div>
 </template>
 
 <script>
-import RecipeDetail from "@/components/RecipeDetail.vue";
+import recipeDetail from "@/components/RecipeDetail.vue";
 export default {
   name: "Recipe",
 
   components: {
-    RecipeDetail,
+    recipeDetail,
   },
   data() {
     return {

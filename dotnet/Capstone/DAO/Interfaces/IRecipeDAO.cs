@@ -10,7 +10,7 @@ namespace Capstone.DAO.Interfaces
     {
         bool AddRecipe(Recipe recipe);
         bool DeleteRecipe(int recipeId);
-        bool ModifyRecipe(int recipeId);
+        bool ModifyRecipe(Recipe recipe);
         Recipe GetRecipe(int recipeId);
         List<Recipe> GetRecipes(int userId);
         List<Recipe> GetRecipeByName(string name);
