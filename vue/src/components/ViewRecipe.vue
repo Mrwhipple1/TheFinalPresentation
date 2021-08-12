@@ -22,14 +22,14 @@
             <td>{{ recipe.recipeDescription }}</td>
             <td>{{ recipe.recipeInstructions }}</td>
             <td>
-              <button>
+              <button class="detail-btn">
                 <router-link
                   v-bind:to="{
                     name: 'recipe',
                     params: { recipeId: recipe.recipeId },
                   }"
                   type="button"
-                  class="btn btn-success"
+                  class="btn btn-success detail-router"
                   >Recipe Details</router-link
                 >
               </button>
@@ -71,10 +71,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 h2 {
-  font-size: 30px;
-  color: cadetblue;
+  font-family: "Roboto", sans-serif;
+  caret-color: transparent;
+  color: rgb(250, 249, 249);
+  font-size: 35px;
   text-transform: uppercase;
   font-weight: 300;
   text-align: center;
@@ -101,12 +103,42 @@ th {
   text-transform: uppercase;
 }
 td {
+  font-family: "Roboto", sans-serif;
+  caret-color: transparent;
+  color: rgb(250, 249, 249);
+  font-size: 16px;
   padding: 20px;
   text-align: center;
   vertical-align: middle;
   font-weight: 300;
-  font-size: 14px;
-  color: purple;
+  color: white;
   border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+td::first-letter {
+  text-transform: capitalize;
+}
+
+.detail-btn {
+  max-width: 200px;
+  height: 30px;
+  margin: 0px 20px 0px 0px;
+  border: #b8b8b8;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  color: #242424;
+  background-color: #c2c2c2;
+  text-align: center;
+  transition: all 0.2s;
+  caret-color: transparent;
+}
+
+.detail-router {
+  color: #2e2e2e;
+  text-decoration: none;
 }
 </style>
