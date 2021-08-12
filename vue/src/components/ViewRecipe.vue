@@ -61,4 +61,18 @@ export default {
 </script>
 
 <style>
+div {
+  border: 2px solid;
+  padding: 20px;
+  width: 1450px;
+  resize: both;
+  overflow: auto;
+  background: red;
+  animation: mymove 5s infinite;
+}
+@keyframes mymove {
+  50% {
+    background-color: blue;
+  }
+}
 </style>

@@ -2,7 +2,7 @@
 <div>
     <p> id="message">{{message}}</p>
     <h3>Delete Recipe {{deleteRecipe}}</h3>
-    <h4>You are about to delete tjhis delicious recipe! Are you sure?</h4>
+    <h4>You are about to delete this delicious recipe! Are you sure?</h4>
 
     <a href="#" class="btn btn-danger" v-on:click="deleteRecipe">Delete</a>
 
