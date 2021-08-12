@@ -59,7 +59,7 @@ const router = new Router({
     },
 
     {
-      path: "/recipe/:recipeId",
+      path: "/recipe/:id",
       name: 'recipe',
       component: Recipe,
       meta: {
@@ -68,7 +68,7 @@ const router = new Router({
     },
 
     {
-      path: "/recipe/:recipeId",
+      path: "/deleterecipe/:id",
       name: 'RecipeDelete',
       component: RecipeDelete,
       meta: {

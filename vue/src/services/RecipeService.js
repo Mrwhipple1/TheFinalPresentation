@@ -30,14 +30,14 @@ export default {
   },
 
   getRecipe(recipeId) {
-    return axios.get(path + '/recipe' + recipeId)
+    return axios.get(path + '/getrecipe/' + recipeId)
 
   },
 
   deleteRecipe(recipeId) {
     console.log("Reached Recipe Delete in service", recipeId)
 
-    return axios.delete(path + '/recipe' + recipeId)
+    return axios.delete(path + '/deleterecipe/' + recipeId)
   }
 
 }
