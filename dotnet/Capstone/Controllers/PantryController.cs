@@ -84,5 +84,11 @@ namespace Capstone.Controllers
         {
             return Ok(recipeDAO.DeleteRecipe(recipeId));
         }
+
+        [HttpPut("modifyrecipe/{recipeId}")]
+        public ActionResult<bool> ModifyRecipe(int recipeId)
+        {
+            return Ok(recipeDAO.ModifyRecipe(recipeId));
+        }
     }
 }

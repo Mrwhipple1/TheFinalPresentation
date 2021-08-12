@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="recipe in recipes" v-bind:key="recipe.id">
+      <tr v-for="recipe in recipes" v-bind:key="recipe.recipeId">
         <td>{{ recipe.recipeId }}</td>
         <td>{{ recipe.recipeName }}</td>
         <td>{{ recipe.recipeDescription }}</td>
@@ -21,19 +21,10 @@
           <router-link
             v-bind:to="{
               name: 'recipe',
-              params: { id: recipe.id },
+              params: { recipeId: recipe.recipeId },
             }"
             class="btn btn-success"
             >Recipe Details</router-link
-          >
-          <router-link
-            class="btn btn-danger"
-            v-bind:to="{
-              name: 'RecipeDelete',
-              params: { id: recipe.id },
-            }"
-          >
-            Delete Recipe</router-link
           >
         </td>
       </tr>

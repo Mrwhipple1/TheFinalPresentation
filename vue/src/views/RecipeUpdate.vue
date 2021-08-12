@@ -1,14 +1,14 @@
 <template>
-  <recipe-detail v-bind:id="recipeNumber" />
+  <recipe-modify v-bind:id="recipeNumber" />
 </template>
 
 <script>
-import RecipeDetail from "@/components/RecipeDetail.vue";
+import RecipeModify from '@/components/RecipeModify.vue';
 export default {
-  name: "Recipe",
+  name: "RecipeUpdate",
 
   components: {
-    RecipeDetail,
+    ModifyRecipe,
   },
   data() {
     return {

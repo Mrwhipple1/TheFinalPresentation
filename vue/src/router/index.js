@@ -7,8 +7,9 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Pantry from '../views/Pantry.vue'
 import Recipe from '../views/Recipe.vue'
-import Register from '../views/Register.vue'
 import RecipeDelete from '../views/RecipeDelete.vue'
+import RecipeModify from '../views/RecipeModify.vue'
+import Register from '../views/Register.vue'
 
 Vue.use(Router)
 
@@ -59,7 +60,7 @@ const router = new Router({
     },
 
     {
-      path: "/recipe/:id",
+      path: "/recipe/:recipeId",
       name: 'recipe',
       component: Recipe,
       meta: {
@@ -68,9 +69,20 @@ const router = new Router({
     },
 
     {
-      path: "/deleterecipe/:id",
+      path: "/deleterecipe/:recipeId",
       name: 'RecipeDelete',
       component: RecipeDelete,
+      meta: {
+        requiresAuth: true
+      }
+
+
+    },
+
+    {
+      path: "/modifyrecipe/:recipeId",
+      name: 'RecipeModify',
+      component: RecipeModify,
       meta: {
         requiresAuth: true
       }
