@@ -33,8 +33,12 @@ export default {
   methods: {
     modifyRecipe() {
       console.log("Entered modify recipe");
+      
+      recipeService.getRecipe(this.recipeNumber)
+      .then((recipe) => {
+          recipe.recipeName = "Jose";
       recipeService
-        .modifyRecipe(this.recipeNumber)
+        .modifyRecipe(recipe, this.recipeNumber)
         .then(() => {
           console.log("Reached then in modify");
           this.$router.push("/pantry");
@@ -49,6 +53,7 @@ export default {
             this.message = "Network Error";
           }
         });
+      });
     },
   },
 };

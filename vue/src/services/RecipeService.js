@@ -40,9 +40,9 @@ export default {
     return axios.delete(path + '/deleterecipe/' + recipeId)
   },
 
-  modifyRecipe(recipe) {
+  modifyRecipe(recipe, recipeId) {
     console.log("Reached recipe Modify in service", recipe)
-    return axios.put(path + '/modifyrecipe/' + recipe.recipeId, recipe )
+    return axios.put(path + '/modifyrecipe/' + recipeId, recipe )
   }
 
 }

@@ -1,15 +1,21 @@
 <template>
   <div>
     
+    <button>
     <router-link class="btn btn-success" v-bind:to="{ name: 'pantry' }">
       List</router-link
     >
+    </button>
+    <button>
     <router-link class="btn btn-danger" v-bind:to="{ name: 'RecipeDelete', params: {recipeId: recipe.recipeId} }">
       Delete Recipe</router-link
     >
+    </button>
+    <button>
         <router-link class="btn btn-danger" v-bind:to="{ name: 'RecipeModify', params: {recipeId: recipe.recipeId} }">
       Modify Recipe</router-link
     >
+    </button>
 
     <table class="table table-bordered table-hover">
       <tbody>

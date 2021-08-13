@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h1>Your Kitchen</h1>
-    <h2>Add your ingredients, see them, and create recipes too!</h2>
+    <h1 class="text">Your Kitchen</h1>
+    <h2 class="text">
+      Add your ingredients, see them, and create recipes too!
+    </h2>
 
     <add-ingredient />
     <add-recipe />
@@ -26,5 +28,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+div {
+  background-color: rgb(46, 46, 46);
+}
+
+.text {
+  color: white;
+  padding: 20px 20px 20px 20px;
+  font-family: "Roboto", sans-serif;
+}
 </style>

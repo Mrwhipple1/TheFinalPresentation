@@ -26,12 +26,16 @@
 
 
 <style scoped>
+#nav {
+  padding-left: 20px;
+}
+
 .nav-item {
   max-width: 110px;
   height: 40px;
   display: inline-block;
   padding: 0.3em 1.2em;
-  margin: 0 0.3em 0.3em 0;
+  margin: 20px 0.3em 0.3em 0;
   border-radius: 2px;
   box-sizing: border-box;
   text-decoration: none;
@@ -46,7 +50,7 @@
 
 .nav-item:hover {
   max-width: 110px;
-  height: 40px;
+  height: 50px;
   display: inline-block;
   padding: 0.3em 1.2em;
   margin: 0 0.3em 0.3em 0;
@@ -60,5 +64,9 @@
   background-color: #000000;
   transition: all 0.2s;
   caret-color: transparent;
+}
+
+#app {
+  background: linear-gradient(to right, #ff4b2b, #ff416c);
 }
 </style>
