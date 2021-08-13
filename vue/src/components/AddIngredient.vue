@@ -4,7 +4,7 @@
       v-on:click="isFormShown = true"
       v-if="!isFormShown"
       class="btn btn-success"
-      ><button>Insert an Ingredient</button></a
+      ><button class="btn">Insert an Ingredient</button></a
     >
     <form v-on:submit.prevent="addNewIngredient" v-if="isFormShown">
       <div class="form-group">
@@ -67,17 +67,5 @@ export default {
 };
 </script>
 
-<style>
-div.form-group{
-list-style: none;
-    background-color: rgb(255, 255, 255);
-    font-size: .9rem;
-    border-radius: 1px;
-    
-    /* Spacing */
-    margin-bottom: 10px;
-    padding: 8px;
-
-
-}
+<style scoped>
 </style>
