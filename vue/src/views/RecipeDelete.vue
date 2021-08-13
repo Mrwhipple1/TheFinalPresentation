@@ -6,7 +6,7 @@
 
     <a href="#" class="delete_btn" v-on:click="deleteRecipe">Delete</a>
 
-    <router-link class="cancel_btn" v-bind:to="{ name: 'Pantry' }">
+    <router-link class="cancel_btn" v-bind:to="{ name: 'recipedetails' }">
       Cancel</router-link
     >
   </div>
