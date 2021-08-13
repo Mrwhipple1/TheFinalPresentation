@@ -5,20 +5,25 @@
     </h2>
     <thead>
       <tr>
+        <th>Recipe Id</th>
         <th>Recipe Name</th>
         <th>Recipe Description</th>
         <th>Recipe Instructions</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="recipe in recipes" v-bind:key="recipe.recipeName">
+      <tr v-for="recipe in recipes" v-bind:key="recipe.recipeId">
+        <td>{{ recipe.recipeId }}</td>
         <td>{{ recipe.recipeName }}</td>
         <td>{{ recipe.recipeDescription }}</td>
         <td>{{ recipe.recipeInstructions }}</td>
         <td>
           <router-link
-            v-bind:to="{ name: 'recipe', params: { id: recipe.id } }"
-            class="recipe"
+            v-bind:to="{
+              name: 'recipe',
+              params: { recipeId: recipe.recipeId },
+            }"
+            class="btn btn-success"
             >Recipe Details</router-link
           >
         </td>
@@ -61,18 +66,11 @@ export default {
 </script>
 
 <style>
-div {
-  border: 2px solid;
-  padding: 20px;
-  width: 1450px;
-  resize: both;
-  overflow: auto;
-  background: red;
-  animation: mymove 5s infinite;
+
+  div.ingredientHeading{
+
+
+     
 }
-@keyframes mymove {
-  50% {
-    background-color: blue;
-  }
-}
+
 </style>

@@ -1,10 +1,14 @@
 <template>
   <div>
+    
     <router-link class="btn btn-success" v-bind:to="{ name: 'pantry' }">
       List</router-link
     >
-    <router-link class="btn btn-danger" v-bind:to="{ name: 'RecipeDelete', params:{id: recipe.id}}">
+    <router-link class="btn btn-danger" v-bind:to="{ name: 'RecipeDelete', params: {recipeId: recipe.recipeId} }">
       Delete Recipe</router-link
+    >
+        <router-link class="btn btn-danger" v-bind:to="{ name: 'RecipeModify', params: {recipeId: recipe.recipeId} }">
+      Modify Recipe</router-link
     >
 
     <table class="table table-bordered table-hover">
@@ -36,7 +40,7 @@ export default {
       recipe: {},
     };
   },
-  props: ["id"],
+  props: ["recipeId"],
 
   created() {
     let recipes = this.$store.state.recipes;

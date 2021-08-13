@@ -1,10 +1,10 @@
 <template>
   <div>
     <p id="message">{{ message }}</p>
-    <h3>Delete Recipe {{ recipeNumber }}</h3>
-    <h4>You are about to delete this delicious recipe! Are you sure?</h4>
+    <h3>Modify Recipe {{ recipeNumber }}</h3>
+    <h4>You are about to modify this recipe! Are you sure?</h4>
 
-    <a href="#" class="btn btn-danger" v-on:click="deleteRecipe">Delete</a>
+    <a href="#" class="btn btn-danger" v-on:click="modifyRecipe">Modify Recipe</a>
 
     <router-link class="btn btn-success" v-bind:to="{ name: 'Pantry' }">
       Cancel</router-link
@@ -15,7 +15,7 @@
 <script>
 import recipeService from "@/services/RecipeService.js";
 export default {
-  name: "RecipeDelete",
+  name: "RecipeModify",
 
   data() {
     return {
@@ -31,16 +31,16 @@ export default {
   },
 
   methods: {
-    deleteRecipe() {
-      console.log("Entered delete recipe");
+    modifyRecipe() {
+      console.log("Entered modify recipe");
       recipeService
-        .deleteRecipe(this.recipeNumber)
+        .modifyRecipe(this.recipeNumber)
         .then(() => {
-          console.log("Reached then in deleteRecipe");
+          console.log("Reached then in modify");
           this.$router.push("/pantry");
         })
         .catch((error) => {
-          console.log("Reached catch in deleteRecipe");
+          console.log("Reached catch in modify");
           if (error.response) {
             this.message =
               "Error: HTTP Response Code: " + error.response.status;
@@ -55,6 +55,4 @@ export default {
 </script>
 
 <style>
-
-
 </style>

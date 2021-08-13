@@ -68,5 +68,16 @@ export default {
 </script>
 
 <style>
+div.form-group{
+list-style: none;
+    background-color: rgb(255, 255, 255);
+    font-size: .9rem;
+    border-radius: 1px;
+    
+    /* Spacing */
+    margin-bottom: 10px;
+    padding: 8px;
 
+
+}
 </style>

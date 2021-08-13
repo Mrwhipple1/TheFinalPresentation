@@ -1,27 +1,28 @@
 <template>
+<div>
   <recipe-detail v-bind:id="recipeNumber" />
+</div>
 </template>
 
 <script>
-import RecipeDetail from '@/components/RecipeDetail.vue'
+import recipeDetail from "@/components/RecipeDetail.vue";
 export default {
-    name: "Recipe",
+  name: "Recipe",
 
-  components: { 
-      RecipeDetail
-},
- data() {
-     return {
-         recipeNumber: 0,
-     };
- },
+  components: {
+    recipeDetail,
+  },
+  data() {
+    return {
+      recipeNumber: 0,
+    };
+  },
 
- created() {
-     this.recipeNumber = this.$route.params.id;
- },
+  created() {
+    this.recipeNumber = this.$route.params.recipeId;
+  },
 };
 </script>
 
 <style>
-
 </style>
