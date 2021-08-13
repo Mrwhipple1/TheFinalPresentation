@@ -8,7 +8,7 @@
     >
     <form v-on:submit.prevent="addNewRecipe" v-if="isFormShown">
       <div class="form-group">
-        <label for="RecipeName"> Name of Recipe</label>
+        <label for="RecipeName"> Name of Recipe:</label>
         <input
           type="text"
           required
@@ -18,7 +18,7 @@
           v-model="newItem.RecipeName"
         />
 
-        <label for="RecipeDescription"> Recipe Description</label>
+        <label for="RecipeDescription"> Recipe Description:</label>
         <input
           type="text"
           id="RecipeDescription"
@@ -27,15 +27,14 @@
           v-model="newItem.RecipeDescription"
         />
 
-        <label for="RecipeInstructions"> Instructions for Recipe</label>
-        <input
-          type="text"
+        <label for="RecipeInstructions"> Instructions for Recipe:</label>
+          <textarea rows = "5" cols = "60"
           required
           id="RecipeInstructions"
           name="RecipeInstructions"
           class="form-control"
-          v-model="newItem.RecipeInstructions"
-        />
+          v-model="newItem.RecipeInstructions">
+         </textarea>
       </div>
 
       <button class="btn btn-submit">Submit</button>
@@ -86,4 +85,10 @@ export default {
 </script>
 
 <style>
+.form-group {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  color: white;
+  
+}
 </style>

@@ -284,6 +284,7 @@ form input {
   background-color: rgb(41, 41, 41);
   border: none;
   height: 40px;
+  color:white;
 }
 
 form button {
